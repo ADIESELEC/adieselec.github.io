@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Electrician Cape Town | Adie's Electrical Solutions — COC, Wiring &amp; Solar Installations</title>
+<meta name="description" content="Licensed electrician serving Cape Town Metro. COC certificates, DB board upgrades, fault finding, solar installation, and residential &amp; commercial electrical work. Same-day response — get a free quote on WhatsApp.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal-black:#14120F;
+    --charcoal:#201D1A;
+    --charcoal-soft:#2B2723;
+    --copper:#B87333;
+    --copper-light:#D98B4A;
+    --amber:#F2A93B;
+    --cream:#F6F0E4;
+    --cream-dim:#DCD3C0;
+    --line:rgba(246,240,228,0.12);
+    --wire-off: #4a4640;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--charcoal-black);
+    color:var(--cream);
+    font-family:'Karla',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.eyebrow,.logo-word,.nav-link,.btn{
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+  }
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  img,svg{display:block;max-width:100%;}
+  section{position:relative;padding:96px 24px;}
+  .wrap{max-width:1120px;margin:0 auto;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation:none!important;transition:none!important;}
+  }
+
+  /* ---------- Wire divider (signature element) ---------- */
+  .wire-divider{
+    width:100%;
+    height:40px;
+    overflow:visible;
+  }
+  .wire-path{
+    fill:none;
+    stroke:var(--wire-off);
+    stroke-width:2;
+    stroke-dasharray:6 8;
+  }
+  .wire-path.charged{
+    stroke:var(--copper);
+  }
+  .spark{
+    r:4;
+    fill:var(--amber);
+    filter:drop-shadow(0 0 6px var(--amber));
+    opacity:0;
+  }
+  .wire-divider.in-view .spark{
+    animation:travel 2.6s linear forwards;
+  }
+  .wire-divider.in-view .wire-path.charged{
+    animation:dash 1.2s linear forwards;
+  }
+  @keyframes dash{
+    from{stroke-dashoffset:240;}
+    to{stroke-dashoffset:0;}
+  }
+  @keyframes travel{
+    0%{opacity:0;}
+    3%{opacity:1;}
+    97%{opacity:1;}
+    100%{opacity:0;}
+  }
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(20,18,15,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    max-width:1120px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand svg{width:40px;height:40px;}
+  .logo-word{font-size:1.05rem;font-weight:600;color:var(--cream);}
+  .logo-word span{color:var(--copper-light);}
+  .nav-links{display:flex;gap:28px;}
+  .nav-link{font-size:0.8rem;font-weight:500;color:var(--cream-dim);transition:color .2s;}
+  .nav-link:hover{color:var(--amber);}
+  .nav-cta{
+    background:var(--copper);
+    color:var(--charcoal-black);
+    padding:10px 18px;
+    font-size:0.78rem;
+    font-weight:600;
+    border-radius:2px;
+    transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--amber);}
+  .nav-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.5rem;cursor:pointer;}
+
+  @media (max-width:760px){
+    .nav-links{
+      position:fixed;top:69px;left:0;right:0;
+      background:var(--charcoal);
+      flex-direction:column;
+      padding:20px 24px;
+      gap:18px;
+      border-bottom:1px solid var(--line);
+      transform:translateY(-140%);
+      transition:transform .3s ease;
+    }
+    .nav-links.open{transform:translateY(0);}
+    .nav-cta{display:none;}
+    .nav-links .nav-cta{display:inline-block;width:fit-content;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:120px 24px 100px;
+    background:
+      radial-gradient(ellipse at 20% 0%, rgba(184,115,51,0.18), transparent 55%),
+      var(--charcoal-black);
+    position:relative;
+  }
+  .hero .wrap{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;}
+  .eyebrow{
+    font-size:0.78rem;
+    color:var(--amber);
+    font-weight:600;
+    letter-spacing:0.12em;
+    margin-bottom:18px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{
+    content:"";width:26px;height:2px;background:var(--amber);
+  }
+  .hero h1{
+    font-size:clamp(2.4rem,5vw,3.6rem);
+    line-height:1.08;
+    font-weight:700;
+    color:var(--cream);
+    margin-bottom:22px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--copper-light);
+  }
+  .hero p{
+    color:var(--cream-dim);
+    font-size:1.05rem;
+    max-width:46ch;
+    margin-bottom:34px;
+  }
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:15px 26px;
+    font-size:0.82rem;
+    font-weight:600;
+    border-radius:2px;
+    transition:transform .2s, background .2s;
+  }
+  .btn-primary{background:var(--copper);color:var(--charcoal-black);}
+  .btn-primary:hover{background:var(--amber);transform:translateY(-2px);}
+  .btn-ghost{border:1px solid var(--line);color:var(--cream);}
+  .btn-ghost:hover{border-color:var(--copper-light);color:var(--copper-light);}
+
+  .hero-panel{
+    background:var(--charcoal);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:28px;
+  }
+  .panel-row{
+    display:flex;justify-content:space-between;align-items:center;
+    padding:14px 0;
+    border-bottom:1px solid var(--line);
+    font-size:0.9rem;
+  }
+  .panel-row:last-child{border-bottom:none;}
+  .panel-row .label{color:var(--cream-dim);}
+  .panel-row .val{color:var(--amber);font-weight:600;}
+
+  /* ---------- Section headers ---------- */
+  .section-head{max-width:640px;margin-bottom:52px;}
+  .section-head .eyebrow{margin-bottom:14px;}
+  .section-head h2{
+    font-size:clamp(1.8rem,3.2vw,2.4rem);
+    color:var(--cream);
+    font-weight:600;
+  }
+  .section-head p{color:var(--cream-dim);margin-top:14px;font-size:1rem;max-width:56ch;}
+
+  /* ---------- Services ---------- */
+  .services{background:var(--charcoal);}
+  .service-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .service-card{
+    background:var(--charcoal);
+    padding:34px 28px;
+    transition:background .25s;
+  }
+  .service-card:hover{background:var(--charcoal-soft);}
+  .service-num{
+    font-family:'Oswald',sans-serif;
+    font-size:0.75rem;
+    color:var(--copper-light);
+    letter-spacing:0.1em;
+    margin-bottom:16px;
+  }
+  .service-card h3{
+    font-size:1.05rem;
+    color:var(--cream);
+    font-weight:600;
+    margin-bottom:10px;
+  }
+  .service-card p{color:var(--cream-dim);font-size:0.92rem;}
+
+  @media (max-width:900px){
+    .service-grid{grid-template-columns:repeat(2,1fr);}
+    .hero .wrap{grid-template-columns:1fr;}
+  }
+  @media (max-width:560px){
+    .service-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- COC explainer ---------- */
+  .coc{
+    background:var(--charcoal-black);
+  }
+  .coc .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:start;}
+  .coc-visual{
+    background:var(--charcoal);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:32px;
+  }
+  .coc-doc-line{
+    height:9px;background:var(--wire-off);border-radius:2px;margin-bottom:12px;
+  }
+  .coc-doc-line.short{width:60%;}
+  .coc-stamp{
+    margin-top:22px;
+    display:inline-flex;align-items:center;gap:10px;
+    border:1px solid var(--copper);
+    color:var(--amber);
+    padding:8px 14px;
+    font-family:'Oswald',sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.1em;
+    border-radius:2px;
+  }
+  .coc-list{margin-top:24px;}
+  .coc-list li{
+    display:flex;gap:14px;
+    padding:16px 0;
+    border-top:1px solid var(--line);
+    color:var(--cream-dim);
+    font-size:0.95rem;
+  }
+  .coc-list li:first-child{border-top:none;}
+  .coc-list b{color:var(--cream);font-weight:600;}
+  .coc-list .mark{color:var(--copper-light);font-weight:700;font-family:'Oswald',sans-serif;}
+
+  @media (max-width:860px){
+    .coc .wrap{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Work gallery & certifications ---------- */
+  .work{background:var(--charcoal-black);}
+  .work-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+  }
+  .work-item{
+    position:relative;
+    border-radius:4px;
+    overflow:hidden;
+    border:1px solid var(--line);
+  }
+  .work-item img{
+    width:100%;height:230px;object-fit:cover;display:block;
+  }
+  .work-item.img-missing{
+    background:
+      repeating-linear-gradient(45deg, var(--charcoal-soft), var(--charcoal-soft) 10px, var(--charcoal) 10px, var(--charcoal) 20px);
+    border:1px dashed var(--wire-off);
+    height:230px;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:16px;
+  }
+  .work-item.img-missing img{display:none;}
+  .img-missing-label{
+    display:none;
+    color:var(--cream-dim);
+    font-size:0.78rem;
+    line-height:1.5;
+  }
+  .img-missing-label b{color:var(--copper-light);display:block;font-family:'Oswald',sans-serif;letter-spacing:0.05em;text-transform:uppercase;font-size:0.72rem;margin-bottom:6px;}
+  .work-item.img-missing .img-missing-label{display:block;}
+  .work-caption{
+    padding:10px 4px 0;
+    font-size:0.85rem;
+    color:var(--cream-dim);
+  }
+
+  .certs{background:var(--charcoal);}
+  .cert-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  }
+  .cert-item{
+    position:relative;
+    border-radius:4px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:var(--charcoal-black);
+  }
+  .cert-item img{
+    width:100%;height:180px;object-fit:contain;display:block;
+    background:var(--cream);
+    padding:10px;
+  }
+  .cert-item.img-missing{
+    background:
+      repeating-linear-gradient(45deg, var(--charcoal-soft), var(--charcoal-soft) 10px, var(--charcoal) 10px, var(--charcoal) 20px);
+    border:1px dashed var(--wire-off);
+    height:180px;
+    display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:14px;
+  }
+  .cert-item.img-missing img{display:none;}
+  .cert-caption{
+    padding:10px 4px 0;
+    font-size:0.82rem;
+    color:var(--cream-dim);
+    text-align:center;
+  }
+
+  @media (max-width:900px){
+    .work-grid{grid-template-columns:repeat(2,1fr);}
+    .cert-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:560px){
+    .work-grid{grid-template-columns:1fr;}
+    .cert-grid{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Process ---------- */
+  .process{background:var(--charcoal);}
+  .process-track{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
+    position:relative;
+  }
+  .process-step{position:relative;padding-top:30px;}
+  .process-step::before{
+    content:attr(data-step);
+    font-family:'Oswald',sans-serif;
+    font-size:0.75rem;
+    color:var(--charcoal-black);
+    background:var(--amber);
+    width:26px;height:26px;
+    display:flex;align-items:center;justify-content:center;
+    border-radius:50%;
+    position:absolute;top:0;left:0;
+    font-weight:700;
+  }
+  .process-step h3{font-size:1rem;color:var(--cream);margin-bottom:8px;font-weight:600;}
+  .process-step p{color:var(--cream-dim);font-size:0.9rem;}
+  @media (max-width:820px){
+    .process-track{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:520px){
+    .process-track{grid-template-columns:1fr;}
+  }
+
+  /* ---------- Booking ---------- */
+  .booking{
+    background:var(--charcoal-black);
+  }
+  .booking .wrap{display:grid;grid-template-columns:0.85fr 1.15fr;gap:56px;}
+  .booking-info h2{font-size:clamp(1.8rem,3vw,2.3rem);color:var(--cream);margin-bottom:16px;font-weight:600;}
+  .booking-info p{color:var(--cream-dim);margin-bottom:26px;}
+  .contact-item{
+    display:flex;gap:14px;align-items:flex-start;
+    padding:16px 0;border-top:1px solid var(--line);
+  }
+  .contact-item:first-of-type{border-top:none;}
+  .contact-item svg{flex-shrink:0;margin-top:2px;}
+  .contact-item .lbl{font-size:0.75rem;color:var(--copper-light);letter-spacing:0.08em;font-family:'Oswald',sans-serif;text-transform:uppercase;}
+  .contact-item .val{color:var(--cream);font-size:0.95rem;margin-top:2px;}
+
+  form{
+    background:var(--charcoal);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:32px;
+    display:grid;
+    gap:18px;
+  }
+  .field{display:flex;flex-direction:column;gap:8px;}
+  .field label{font-size:0.75rem;color:var(--cream-dim);letter-spacing:0.05em;font-family:'Oswald',sans-serif;text-transform:uppercase;}
+  .field input, .field select, .field textarea{
+    background:var(--charcoal-black);
+    border:1px solid var(--line);
+    color:var(--cream);
+    padding:12px 14px;
+    font-family:'Karla',sans-serif;
+    font-size:0.95rem;
+    border-radius:2px;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:2px solid var(--copper-light);
+    outline-offset:1px;
+    border-color:var(--copper-light);
+  }
+  .field textarea{resize:vertical;min-height:90px;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  @media (max-width:820px){
+    .booking .wrap{grid-template-columns:1fr;}
+    .field-row{grid-template-columns:1fr;}
+  }
+  .form-note{font-size:0.82rem;color:var(--cream-dim);}
+  .form-note a{color:var(--copper-light);border-bottom:1px solid transparent;}
+  .form-note a:hover{border-bottom-color:var(--copper-light);}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--charcoal);
+    border-top:1px solid var(--line);
+    padding:40px 24px;
+  }
+  .footer-wrap{
+    max-width:1120px;margin:0 auto;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  }
+  .footer-wrap p{color:var(--cream-dim);font-size:0.85rem;}
+
+  /* ---------- WhatsApp float ---------- */
+  .wa-float{
+    position:fixed;bottom:24px;right:24px;z-index:60;
+    background:#25D366;
+    width:58px;height:58px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 20px rgba(0,0,0,0.4);
+    transition:transform .2s;
+  }
+  .wa-float:hover{transform:scale(1.08);}
+  .wa-float svg{width:30px;height:30px;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F2A93B"/>
+            <stop offset="100%" stop-color="#B87333"/>
+          </linearGradient>
+        </defs>
+        <circle cx="32" cy="32" r="31" fill="#201D1A" stroke="url(#logoGrad)" stroke-width="2"/>
+        <path d="M35 12 L20 34 H29 L26 52 L45 26 H35 Z" fill="url(#logoGrad)"/>
+      </svg>
+      <span class="logo-word">ADIE'S <span>ELECTRICAL</span></span>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a class="nav-link" href="#services">Services</a></li>
+      <li><a class="nav-link" href="#work">Our Work</a></li>
+      <li><a class="nav-link" href="#coc">COC</a></li>
+      <li><a class="nav-link" href="#certifications">Certifications</a></li>
+      <li><a class="nav-link" href="#process">How it works</a></li>
+      <li><a class="nav-link" href="blog/index.html">Blog</a></li>
+      <li><a class="nav-cta" href="#booking">Book a Job</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Cape Town &middot; Domestic &amp; Commercial</div>
+      <h1>Cape Town Electrician You Can Actually <em>Rely On.</em></h1>
+      <p>Licensed electrical services for homes and businesses across Cape Town Metro — fault finding, DB board upgrades, solar installation, and Certificate of Compliance (COC) inspections, done right the first time.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#booking">Book a Job</a>
+        <a class="btn btn-ghost" href="https://wa.me/27847299088?text=Hi%20Adie%2C%20I%27d%20like%20a%20quote%20for%20electrical%20work" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="panel-row"><span class="label">Response time</span><span class="val">Same day</span></div>
+      <div class="panel-row"><span class="label">Call-out area</span><span class="val">Cape Town Metro</span></div>
+      <div class="panel-row"><span class="label">COC issued</span><span class="val">On completion</span></div>
+      <div class="panel-row"><span class="label">Contact</span><span class="val">084 729 9088</span></div>
+    </div>
+  </div>
+</section>
+
+<svg class="wire-divider" viewBox="0 0 1120 40" preserveAspectRatio="none">
+  <path class="wire-path charged" d="M0,20 L1120,20"/>
+  <circle class="spark" cx="0" cy="20">
+    <animateMotion dur="2.6s" repeatCount="indefinite" path="M0,20 L1120,20"/>
+  </circle>
+</svg>
+
+<section class="services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">What we do</div>
+      <h2>Electrical Services in Cape Town</h2>
+      <p>From a single faulty plug to a full commercial rewire, DB board upgrade, or solar installation — handled by one electrician who shows up when he says he will.</p>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <h3>Residential Wiring</h3>
+        <p>New installations, rewires, and additions for homes — plug points, lighting circuits, and geyser connections done to code.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <h3>Commercial Electrical</h3>
+        <p>Office, retail, and small industrial electrical work — from three-phase installs to ongoing maintenance contracts.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <h3>Fault Finding &amp; Repairs</h3>
+        <p>Tripping breakers, dead circuits, flickering lights — diagnosed and fixed, not just patched over.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <h3>DB Board Upgrades</h3>
+        <p>Distribution board replacements and upgrades to bring older installations up to current safety standards.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <h3>Certificate of Compliance</h3>
+        <p>COC inspections and certificates for property sales, insurance, and legal compliance — see below for detail.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <h3>Backup Power &amp; Solar</h3>
+        <p>Inverter and solar setup, wiring, and load shedding-ready configurations for home and small business.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wire-divider" viewBox="0 0 1120 40" preserveAspectRatio="none">
+  <path class="wire-path charged" d="M0,20 L1120,20"/>
+  <circle class="spark" cx="0" cy="20">
+    <animateMotion dur="2.6s" repeatCount="indefinite" path="M0,20 L1120,20"/>
+  </circle>
+</svg>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Our Work</div>
+      <h2>Recent Electrical Work in Cape Town</h2>
+      <p>A look at completed installs and repairs. Drop your own photos into the <code>images</code> folder using the filenames below and they'll appear here automatically.</p>
+    </div>
+    <div class="work-grid">
+      <div class="work-item">
+        <img src="images/work-1.jpg" alt="Electrical work photo 1" onerror="this.parentElement.classList.add('img-missing')">
+        <div class="img-missing-label"><b>Add photo</b>images/work-1.jpg</div>
+      </div>
+      <div class="work-item">
+        <img src="images/work-2.jpg" alt="Electrical work photo 2" onerror="this.parentElement.classList.add('img-missing')">
+        <div class="img-missing-label"><b>Add photo</b>images/work-2.jpg</div>
+      </div>
+      <div class="work-item">
+        <img src="images/work-3.jpg" alt="Electrical work photo 3" onerror="this.parentElement.classList.add('img-missing')">
+        <div class="img-missing-label"><b>Add photo</b>images/work-3.jpg</div>
+      </div>
+      <div class="work-item">
+        <img src="images/work-4.jpg" alt="Electrical work photo 4" onerror="this.parentElement.classList.add('img-missing')">
+        <div class="img-missing-label"><b>Add photo</b>images/work-4.jpg</div>
+      </div>
+      <div class="work-item">
+        <img src="images/work-5.jpg" alt="Electrical work photo 5" onerror="this.parentElement.classList.add('img-missing')">
+        <div class="img-missing-label"><b>Add photo</b>images/work-5.jpg</div>
+      </div>
+      <div class="work-item">
+        <img src="images/work-6.jpg" alt="Electrical work photo 6" onerror="this.parentElement.classList.add('img-missing')">
+        <div class="img-missing-label"><b>Add photo</b>images/work-6.jpg</div>
+      </div>
+      <div class="work-item">
+        <img src="images/work-7.jpg" alt="Electrical work photo 7" onerror="this.parentElement.classList.add('img-missing')">
+        <div class="img-missing-label"><b>Add photo</b>images/work-7.jpg</div>
+      </div>
+      <div class="work-item">
+        <img src="images/work-8.jpg" alt="Electrical work photo 8" onerror="this.parentElement.classList.add('img-missing')">
+        <div class="img-missing-label"><b>Add photo</b>images/work-8.jpg</div>
+      </div>
+      <div class="work-item">
+        <img src="images/work-9.jpg" alt="Electrical work photo 9" onerror="this.parentElement.classList.add('img-missing')">
+        <div class="img-missing-label"><b>Add photo</b>images/work-9.jpg</div>
+      </div>
+      <div class="work-item">
+        <img src="images/work-10.jpg" alt="Electrical work photo 10" onerror="this.parentElement.classList.add('img-missing')">
+        <div class="img-missing-label"><b>Add photo</b>images/work-10.jpg</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wire-divider" viewBox="0 0 1120 40" preserveAspectRatio="none">
+  <path class="wire-path charged" d="M0,20 L1120,20"/>
+  <circle class="spark" cx="0" cy="20">
+    <animateMotion dur="2.6s" repeatCount="indefinite" path="M0,20 L1120,20"/>
+  </circle>
+</svg>
+
+<section class="coc" id="coc">
+  <div class="wrap">
+    <div class="coc-visual">
+      <div class="coc-doc-line"></div>
+      <div class="coc-doc-line"></div>
+      <div class="coc-doc-line short"></div>
+      <div class="coc-doc-line"></div>
+      <div class="coc-doc-line short"></div>
+      <div class="coc-stamp">&#9889; COC Issued</div>
+    </div>
+    <div>
+      <div class="section-head">
+        <div class="eyebrow">Certificate of Compliance</div>
+        <h2>Certificate of Compliance (COC) — What It Covers</h2>
+        <p>A Certificate of Compliance (COC) confirms your electrical installation meets South African safety standards. It's a legal requirement, not a nice-to-have.</p>
+      </div>
+      <ul class="coc-list">
+        <li><span class="mark">&rarr;</span><span><b>Required to sell a property.</b> No valid COC, no transfer — it's one of the first documents a conveyancer will ask for.</span></li>
+        <li><span class="mark">&rarr;</span><span><b>Often required by insurers.</b> A claim involving electrical damage or fire can be affected without a valid, up-to-date certificate.</span></li>
+        <li><span class="mark">&rarr;</span><span><b>Covers the full installation.</b> Wiring, earthing, DB board, and any additions made since the last certificate was issued.</span></li>
+        <li><span class="mark">&rarr;</span><span><b>Valid for as long as no changes are made.</b> Any new circuit or addition means the certificate needs to be updated.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<svg class="wire-divider" viewBox="0 0 1120 40" preserveAspectRatio="none">
+  <path class="wire-path charged" d="M0,20 L1120,20"/>
+  <circle class="spark" cx="0" cy="20">
+    <animateMotion dur="2.6s" repeatCount="indefinite" path="M0,20 L1120,20"/>
+  </circle>
+</svg>
+
+<section class="certs" id="certifications">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Credentials</div>
+      <h2>Certifications &amp; qualifications</h2>
+      <p>Scans of trade certificates and registrations. Add yours as <code>images/cert-1.jpg</code> through <code>images/cert-4.jpg</code>.</p>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-item">
+        <img src="images/cert-1.jpg" alt="Certification 1" onerror="this.parentElement.classList.add('img-missing')">
+        <div class="img-missing-label"><b>Add scan</b>images/cert-1.jpg</div>
+      </div>
+      <div class="cert-item">
+        <img src="images/cert-2.jpg" alt="Certification 2" onerror="this.parentElement.classList.add('img-missing')">
+        <div class="img-missing-label"><b>Add scan</b>images/cert-2.jpg</div>
+      </div>
+      <div class="cert-item">
+        <img src="images/cert-3.jpg" alt="Certification 3" onerror="this.parentElement.classList.add('img-missing')">
+        <div class="img-missing-label"><b>Add scan</b>images/cert-3.jpg</div>
+      </div>
+      <div class="cert-item">
+        <img src="images/cert-4.jpg" alt="Certification 4" onerror="this.parentElement.classList.add('img-missing')">
+        <div class="img-missing-label"><b>Add scan</b>images/cert-4.jpg</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wire-divider" viewBox="0 0 1120 40" preserveAspectRatio="none">
+  <path class="wire-path charged" d="M0,20 L1120,20"/>
+  <circle class="spark" cx="0" cy="20">
+    <animateMotion dur="2.6s" repeatCount="indefinite" path="M0,20 L1120,20"/>
+  </circle>
+</svg>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">How it works</div>
+      <h2>From call to certificate</h2>
+    </div>
+    <div class="process-track">
+      <div class="process-step" data-step="1">
+        <h3>Get in touch</h3>
+        <p>WhatsApp, call, or fill in the form with what's going on and where you're based.</p>
+      </div>
+      <div class="process-step" data-step="2">
+        <h3>Quote &amp; schedule</h3>
+        <p>You'll get a straight quote and a time that works — most jobs booked within the same week.</p>
+      </div>
+      <div class="process-step" data-step="3">
+        <h3>Work gets done</h3>
+        <p>On-site work carried out to code, with no surprises added to the bill afterward.</p>
+      </div>
+      <div class="process-step" data-step="4">
+        <h3>Certificate issued</h3>
+        <p>Where applicable, your COC is issued on completion — yours to keep for the property records.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wire-divider" viewBox="0 0 1120 40" preserveAspectRatio="none">
+  <path class="wire-path charged" d="M0,20 L1120,20"/>
+  <circle class="spark" cx="0" cy="20">
+    <animateMotion dur="2.6s" repeatCount="indefinite" path="M0,20 L1120,20"/>
+  </circle>
+</svg>
+
+<section class="booking" id="booking">
+  <div class="wrap">
+    <div class="booking-info">
+      <div class="eyebrow">Get in touch</div>
+      <h2>Book an Electrician in Cape Town</h2>
+      <p>Fastest response is via WhatsApp. Or send the details below and you'll hear back the same day.</p>
+
+      <div class="contact-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D98B4A" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <div>
+          <div class="lbl">Phone</div>
+          <div class="val"><a href="tel:+27847299088">084 729 9088</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D98B4A" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+        <div>
+          <div class="lbl">Email</div>
+          <div class="val"><a href="mailto:adies.elect@gmail.com">adies.elect@gmail.com</a></div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#D98B4A" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <div>
+          <div class="lbl">Area</div>
+          <div class="val">Cape Town Metro</div>
+        </div>
+      </div>
+    </div>
+
+    <form action="https://formspree.io/f/mgogarry" method="POST">
+      <div class="field-row">
+        <div class="field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+      </div>
+      <div class="field">
+        <label for="service">Service needed</label>
+        <select id="service" name="service">
+          <option>Residential Wiring</option>
+          <option>Commercial Electrical</option>
+          <option>Fault Finding &amp; Repairs</option>
+          <option>DB Board Upgrade</option>
+          <option>Certificate of Compliance</option>
+          <option>Backup Power &amp; Solar</option>
+          <option>Other / Not sure</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="message">Tell us what's going on</label>
+        <textarea id="message" name="message" placeholder="e.g. Breaker keeps tripping in the kitchen"></textarea>
+      </div>
+      <button class="btn btn-primary" type="submit" style="justify-self:start;">Send Request</button>
+      <p class="form-note">Prefer instant replies? <a href="https://wa.me/27847299088" target="_blank" rel="noopener">Message on WhatsApp</a> instead.</p>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-wrap">
+    <p>&copy; <span id="year"></span> Adie's Electrical Solutions, Cape Town.</p>
+    <p>084 729 9088 &middot; adies.elect@gmail.com</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/27847299088?text=Hi%20Adie%2C%20I%27d%20like%20a%20quote%20for%20electrical%20work" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#fff"><path d="M16.001 2.667c-7.364 0-13.334 5.97-13.334 13.334 0 2.353.62 4.66 1.797 6.686L2.667 29.333l6.823-1.789a13.28 13.28 0 0 0 6.51 1.658h.001c7.364 0 13.334-5.97 13.334-13.334S23.365 2.667 16.001 2.667zm0 24.395a11.03 11.03 0 0 1-5.62-1.539l-.403-.24-4.05 1.062 1.081-3.947-.263-.405a11.01 11.01 0 0 1-1.686-5.86c0-6.09 4.955-11.045 11.046-11.045 6.09 0 11.045 4.955 11.045 11.045 0 6.09-4.955 11.045-11.05 11.045l-.1-.001zm6.06-8.272c-.332-.166-1.963-.968-2.268-1.078-.305-.11-.526-.166-.747.166-.222.332-.858 1.078-1.052 1.3-.194.222-.388.25-.72.083-.332-.166-1.401-.516-2.669-1.646-.987-.88-1.654-1.966-1.848-2.298-.194-.332-.021-.512.146-.677.15-.149.332-.388.499-.582.166-.194.222-.332.332-.554.11-.222.055-.416-.028-.582-.083-.166-.747-1.798-1.023-2.462-.27-.648-.544-.56-.747-.57-.194-.01-.416-.012-.638-.012-.222 0-.582.083-.887.416-.305.332-1.163 1.136-1.163 2.77 0 1.633 1.19 3.212 1.356 3.434.166.222 2.343 3.577 5.675 5.017.793.343 1.412.548 1.895.7.796.253 1.52.217 2.093.132.639-.095 1.963-.803 2.24-1.578.277-.775.277-1.44.194-1.578-.083-.138-.305-.222-.638-.388z"/></svg>
+</a>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  const wires = document.querySelectorAll('.wire-divider');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.4});
+  wires.forEach(w => io.observe(w));
+</script>
+
+</body>
+</html>
