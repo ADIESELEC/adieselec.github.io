@@ -2,9 +2,7 @@ name: Auto-generate weekly blog post
 
 on:
   schedule:
-    # Every Monday at 08:00 UTC (10:00 SAST)
     - cron: '0 8 * * 1'
-  # Allows manually triggering a run from the Actions tab for testing
   workflow_dispatch:
 
 permissions:
@@ -33,9 +31,6 @@ jobs:
 
       - name: Generate blog post
         env:
-          # GITHUB_TOKEN is provided automatically by Actions. The
-          # "models: read" permission above lets it call GitHub Models -
-          # no separate account, API key, or billing needed.
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python generate_blog.py
 
