@@ -4,21 +4,25 @@ import datetime
 import google.generativeai as genai
 
 # Setup Gemini API
-genai.configure(api_key=os.environ["GEMINI_API_KEY"])
+api_key = os.environ.get("GEMINI_API_KEY")
+if not api_key:
+    raise ValueError("GEMINI_API_KEY secret is not set in GitHub Repository Secrets!")
+
+genai.configure(api_key=api_key)
 model = genai.GenerativeModel("gemini-1.5-flash")
 
 # Local SEO Topics for Cape Town Electrician
 topics = [
     "How to Prepare Your Home Electrical DB Board for Load Shedding in Cape Town",
-    "What Is a COC Certificate and Why Do You Need One When Selling Property in Western Cape",
+    "What Is a COC Certificate and Why You Need One When Selling Property in Western Cape",
     "Common Electrical Faults in Cape Town Homes and How to Spot Them",
-    "Upgrading Your Home Distribution Board (DB): Safety Tips and Standards",
-    "Solar PV & Inverter Installations: What Every Cape Town Homeowner Should Know"
+    "Upgrading Your Home Distribution Board DB Safety Tips and Standards",
+    "Solar PV and Inverter Installations What Every Cape Town Homeowner Should Know"
 ]
 
 selected_topic = random.choice(topics)
 date_str = datetime.datetime.now().strftime("%Y-%m-%d")
-slug = selected_topic.lower().replace(" ", "-").replace(":", "").replace("?", "")
+slug = selected_topic.lower().replace(" ", "-")
 
 prompt = f"""
 Write an engaging, SEO-optimized blog post in clean HTML format (only content inside <body> tag, no <html> or <body> tags) about: "{selected_topic}".
