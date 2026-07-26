@@ -1,0 +1,18 @@
+{
+  "name": "Adie's Electrical Solutions",
+  "description": "Licensed domestic and commercial electrical contractor in Cape Town offering COC inspections, wiring, repairs, and solar installations.",
+  "url": "https://adieselectrical.co.za",
+  "contact": {
+    "phone": "+27847299088",
+    "email": "info@adieselectrical.co.za"
+  },
+  "serviceArea": "Cape Town Metro, South Africa",
+  "capabilities": [
+    "Residential Wiring & Rewiring",
+    "Commercial Electrical Work",
+    "Fault Finding & Repairs",
+    "DB Board Upgrades",
+    "Certificate of Compliance (COC) Inspections",
+    "Backup Power & Solar PV Installations"
+  ]
+}
