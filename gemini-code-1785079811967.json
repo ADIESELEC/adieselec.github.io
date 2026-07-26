@@ -1,0 +1,19 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Electrician",
+  "name": "Adie's Electrical Solutions",
+  "image": "https://adieselectrical.co.za/images/work-4.jpg",
+  "url": "https://adieselectrical.co.za",
+  "telephone": "+27847299088",
+  "email": "info@adieselectrical.co.za",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Cape Town",
+    "addressRegion": "Western Cape",
+    "addressCountry": "ZA"
+  },
+  "areaServed": "Cape Town Metro",
+  "priceRange": "$$"
+}
+</script>
