@@ -3,8 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Adie's Electrical Solutions</title>
-<meta name="description" content="Electrical tips, guides, and local Cape Town advice from Adie's Electrical Solutions - COC inspections, DB board upgrades, solar, and more.">
+<title>Why DIY Electrical Work is Illegal and Dangerous in Cape Town | Adie's Electrical Solutions</title>
+<meta name="description" content="As a homeowner or landlord in Cape Town, you may be tempted to tackle electrical repairs or installations on your own. While DIY projects can be rewarding, elec">
+<meta name="author" content="Adie's Electrical Solutions">
+<meta property="og:title" content="Why DIY Electrical Work is Illegal and Dangerous in Cape Town">
+<meta property="og:description" content="As a homeowner or landlord in Cape Town, you may be tempted to tackle electrical repairs or installations on your own. While DIY projects can be rewarding, elec">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-07-27">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -120,46 +125,52 @@
   .wa-float svg{width:30px;height:30px;}
 
 
-  /* ---------- Blog index ---------- */
-  .blog-index{padding:140px 24px 100px;background:var(--charcoal-black);}
-  .blog-index .section-head h1{
+  /* ---------- Blog post article ---------- */
+  .blog-post{padding:140px 24px 100px;background:var(--charcoal-black);}
+  .blog-post .wrap{max-width:760px;}
+  .blog-post article h1{
     font-size:clamp(2rem,4vw,2.8rem);
     color:var(--cream);
     font-weight:700;
-    margin-bottom:14px;
+    line-height:1.15;
+    margin-bottom:28px;
   }
-  .blog-index .section-head p{color:var(--cream-dim);max-width:56ch;}
-  .blog-grid{
-    margin-top:48px;
-    display:grid;grid-template-columns:repeat(2,1fr);gap:20px;
+  .blog-post article h2{
+    font-size:1.5rem;
+    color:var(--cream);
+    font-weight:600;
+    margin:40px 0 16px;
   }
-  .blog-card{
-    display:block;
-    background:var(--charcoal);
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:28px;
-    transition:border-color .2s, background .2s;
-  }
-  .blog-card:hover{background:var(--charcoal-soft);border-color:var(--copper-light);}
-  .blog-card-date{
-    font-family:'Oswald',sans-serif;
-    font-size:0.72rem;
-    letter-spacing:0.08em;
+  .blog-post article h3{
+    font-size:1.15rem;
     color:var(--copper-light);
-    text-transform:uppercase;
+    font-weight:600;
+    margin:28px 0 12px;
   }
-  .blog-card h3{
-    font-size:1.15rem;color:var(--cream);font-weight:600;
-    margin:10px 0 10px;text-transform:none;letter-spacing:normal;
+  .blog-post article p{color:var(--cream-dim);margin-bottom:18px;font-size:1.02rem;}
+  .blog-post article ul{margin:0 0 20px 4px;}
+  .blog-post article li{
+    color:var(--cream-dim);
+    padding:8px 0 8px 22px;
+    position:relative;
+    font-size:1rem;
   }
-  .blog-card p{color:var(--cream-dim);font-size:0.92rem;margin-bottom:16px;}
-  .blog-card-link{color:var(--amber);font-size:0.85rem;font-weight:600;}
-  .no-posts{color:var(--cream-dim);}
-
-  @media (max-width:760px){
-    .blog-grid{grid-template-columns:1fr;}
+  .blog-post article li::before{
+    content:"";
+    position:absolute;left:0;top:17px;
+    width:8px;height:8px;
+    background:var(--copper);
+    border-radius:1px;
   }
+  .blog-post article strong{color:var(--cream);}
+  .blog-post article a{color:var(--copper-light);border-bottom:1px solid var(--copper-light);}
+  .blog-post article a:hover{color:var(--amber);border-bottom-color:var(--amber);}
+  .blog-post .back-link{
+    display:inline-block;margin-top:44px;
+    color:var(--cream-dim);font-size:0.9rem;
+    border-bottom:1px solid var(--line);
+  }
+  .blog-post .back-link:hover{color:var(--amber);}
 </style>
 </head>
 <body>
@@ -190,57 +201,49 @@
   </nav>
 </header>
 
-<section class="blog-index">
+<section class="blog-post">
   <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Adie's Electrical Blog</div>
-      <h1>Electrical Tips &amp; Local Cape Town Advice</h1>
-      <p>Practical guides on DB boards, COC certificates, solar, and keeping your home's electrics safe - written for Cape Town homeowners and landlords.</p>
-    </div>
-    <div class="blog-grid">
-      <a class="blog-card" href="solar-system-check.html">
-        <span class="blog-card-date"></span>
-        <h3>solar-system-check.html</h3>
-        <p>Not sure if your inverter and battery setup is actually protecting you during load shedding? Here's how to check if your solar system is underperforming.</p>
-        <span class="blog-card-link">Read article &rarr;</span>
-      </a>
-      <a class="blog-card" href="solar-installation-benefits.html">
-        <span class="blog-card-date"></span>
-        <h3>solar-installation-benefits.html</h3>
-        <p>Solar installation isn't just about load shedding — the real cost savings, property value, and tariff protection benefits for Cape Town homeowners.</p>
-        <span class="blog-card-link">Read article &rarr;</span>
-      </a>
-      <a class="blog-card" href="prepaid-electricity-tariffs.html">
-        <span class="blog-card-date"></span>
-        <h3>prepaid-electricity-tariffs.html</h3>
-        <p>How prepaid electricity tariffs work in South Africa (inclining block rates explained), plus simple ways to make your prepaid units last longer.</p>
-        <span class="blog-card-link">Read article &rarr;</span>
-      </a>
-      <a class="blog-card" href="electrical-warning-signs.html">
-        <span class="blog-card-date"></span>
-        <h3>electrical-warning-signs.html</h3>
-        <p>Tripping breakers, warm plug points, flickering lights — the early warning signs of faulty home wiring in South Africa, before they become a fire risk.</p>
-        <span class="blog-card-link">Read article &rarr;</span>
-      </a>
-      <a class="blog-card" href="certificate-of-compliance-explained.html">
-        <span class="blog-card-date"></span>
-        <h3>certificate-of-compliance-explained.html</h3>
-        <p>Do you need a COC to sell your house in South Africa? Here's what a Certificate of Compliance covers, when it's legally required, and how to get one in Cape Town.</p>
-        <span class="blog-card-link">Read article &rarr;</span>
-      </a>
-      <a class="blog-card" href="2026-07-27-why-diy-electrical-work-is-illegal-and-dangerous-in-cape-town.html">
-        <span class="blog-card-date">2026-07-27</span>
-        <h3>Why DIY Electrical Work is Illegal and Dangerous in Cape Town</h3>
-        <p>As a homeowner or landlord in Cape Town, you may be tempted to tackle electrical repairs or installations on your own. While DIY projects can be rewarding, elec</p>
-        <span class="blog-card-link">Read article &rarr;</span>
-      </a>
-      <a class="blog-card" href="2026-07-26-essential-tips-for-selecting-a-licensed-electrician-in-cape-town.html">
-        <span class="blog-card-date">2026-07-26</span>
-        <h3>Essential Tips for Selecting a Licensed Electrician in Cape Town</h3>
-        <p>When it comes to electrical work in your home, choosing a qualified and licensed electrician is crucial. Whether you're a homeowner or a landlord in Cape Town,</p>
-        <span class="blog-card-link">Read article &rarr;</span>
-      </a>
-    </div>
+    <article>
+<h1>Why DIY Electrical Work is Illegal and Dangerous in Cape Town</h1>
+
+<h2>The Risks of Doing Electrical Work Yourself</h2>
+<p>As a homeowner or landlord in Cape Town, you may be tempted to tackle electrical repairs or installations on your own. While DIY projects can be rewarding, electrical work is a realm where the dangers are far too high. In South Africa, attempting electrical work without proper licenses and training is not only illegal but can also pose significant risks to your safety and property.</p>
+
+<h2>Understanding the Legal Implications</h2>
+<p>In South Africa, electrical installations and repairs must comply with the <strong>Electrical Installation Regulations</strong> as set forth by the Department of Labour. These laws require that electrical work be performed by a qualified and registered electrician. Here’s why:</p>
+<ul>
+    <li><strong>Safety:</strong> Improper electrical work can lead to shocks, fires, and even fatalities.</li>
+    <li><strong>Legal Consequences:</strong> If work is done illegally, homeowners can face hefty fines and even criminal charges.</li>
+    <li><strong>Insurance Issues:</strong> Any damages resulting from unauthorized electrical work may not be covered by your insurance.</li>
+</ul>
+
+<h2>The Dangers of DIY Electrical Work</h2>
+<p>Electrical systems are complex and dangerous. Here are some specific dangers associated with DIY electrical work:</p>
+<ul>
+    <li><strong>Electrical Shock:</strong> Working with live wires can result in severe injury or death.</li>
+    <li><strong>Fires:</strong> Faulty wiring is one of the leading causes of residential fires in South Africa.</li>
+    <li><strong>Property Damage:</strong> Improper installations can lead to extensive damage, costing more in repairs.</li>
+    <li><strong>Increased Costs:</strong> What may start as a DIY project can end up requiring expensive professional fixes.</li>
+</ul>
+
+<h2>Why Trust a Professional Electrician?</h2>
+<p>Choosing to hire a professional electrician, such as <strong>Adie's Electrical Solutions</strong>, takes the worry out of electrical projects. Our team is licensed, insured, and trained to handle all aspects of electrical work, ensuring safety and compliance with local laws.</p>
+
+<h3>How to Choose the Right Electrician</h3>
+<p>When selecting an electrician, consider the following tips:</p>
+<ul>
+    <li>Check for qualifications and licenses.</li>
+    <li>Read online reviews and testimonials from local clients.</li>
+    <li>Ask for references and recent work examples.</li>
+    <li>Get detailed quotes and ensure transparency in pricing.</li>
+</ul>
+
+<h2>Conclusion: Prioritize Your Safety</h2>
+<p>The risks associated with DIY electrical work simply aren't worth it. As a responsible homeowner or landlord in Cape Town, your safety and that of your property should be your top priority. If you need electrical work done, contact trusted local experts like <strong>Adie's Electrical Solutions</strong>. We are here to provide a professional and reliable service that adheres to all legal requirements.</p>
+
+<p>Don't take chances with your electrical systems! For a quote or inspection, reach out via <a href="https://api.whatsapp.com/send?phone=27847299088">WhatsApp (+27 84 729 9088)</a> or email <a href="mailto:info@adieselectrical.co.za">info@adieselectrical.co.za</a>. Your safety is just a message away!</p>
+    </article>
+    <a class="back-link" href="index.html">&larr; Back to all articles</a>
   </div>
 </section>
 
