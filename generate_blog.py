@@ -76,6 +76,169 @@ TOPIC_POOL = [
 ]
 
 
+WHATSAPP_LINK = "https://wa.me/27847299088?text=Hi%20Adie%2C%20I%27d%20like%20a%20quote%20for%20electrical%20work"
+
+# Shared CSS variables + base rules, lifted from the main site so blog
+# pages feel like part of the same site rather than a generic template.
+SHARED_STYLE = """
+  :root{
+    --charcoal-black:#14120F;
+    --charcoal:#201D1A;
+    --charcoal-soft:#2B2723;
+    --copper:#B87333;
+    --copper-light:#D98B4A;
+    --amber:#F2A93B;
+    --cream:#F6F0E4;
+    --cream-dim:#DCD3C0;
+    --line:rgba(246,240,228,0.12);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--charcoal-black);
+    color:var(--cream);
+    font-family:'Karla',sans-serif;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.eyebrow,.logo-word,.nav-link,.btn{
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+  }
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:1120px;margin:0 auto;}
+
+  /* ---------- Nav ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(20,18,15,0.9);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    max-width:1120px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 24px;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand svg{width:40px;height:40px;}
+  .logo-word{font-size:1.05rem;font-weight:600;color:var(--cream);}
+  .logo-word span{color:var(--copper-light);}
+  .nav-links{display:flex;gap:28px;}
+  .nav-link{font-size:0.8rem;font-weight:500;color:var(--cream-dim);transition:color .2s;}
+  .nav-link:hover{color:var(--amber);}
+  .nav-cta{
+    background:var(--copper);
+    color:var(--charcoal-black);
+    padding:10px 18px;
+    font-size:0.78rem;
+    font-weight:600;
+    border-radius:2px;
+    transition:background .2s;
+  }
+  .nav-cta:hover{background:var(--amber);}
+  .nav-toggle{display:none;background:none;border:none;color:var(--cream);font-size:1.5rem;cursor:pointer;}
+  .eyebrow{
+    font-size:0.78rem;color:var(--amber);font-weight:600;
+    letter-spacing:0.12em;margin-bottom:18px;
+    display:flex;align-items:center;gap:10px;
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--amber);}
+
+  @media (max-width:760px){
+    .nav-links{
+      position:fixed;top:69px;left:0;right:0;
+      background:var(--charcoal);
+      flex-direction:column;
+      padding:20px 24px;
+      gap:18px;
+      border-bottom:1px solid var(--line);
+      transform:translateY(-140%);
+      transition:transform .3s ease;
+    }
+    .nav-links.open{transform:translateY(0);}
+    .nav-cta{display:none;}
+    .nav-links .nav-cta{display:inline-block;width:fit-content;}
+    .nav-toggle{display:block;}
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--charcoal);
+    border-top:1px solid var(--line);
+    padding:40px 24px;
+  }
+  .footer-wrap{
+    max-width:1120px;margin:0 auto;
+    display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+  }
+  .footer-wrap p{color:var(--cream-dim);font-size:0.85rem;}
+
+  /* ---------- WhatsApp float ---------- */
+  .wa-float{
+    position:fixed;bottom:24px;right:24px;z-index:60;
+    background:#25D366;
+    width:58px;height:58px;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 6px 20px rgba(0,0,0,0.4);
+    transition:transform .2s;
+  }
+  .wa-float:hover{transform:scale(1.08);}
+  .wa-float svg{width:30px;height:30px;}
+"""
+
+# Header/nav markup, with links adjusted to work from inside the blog/
+# subfolder (site sections use "../index.html#..", the Blog link points
+# to the local index.html since we're already inside blog/).
+SITE_HEADER = f"""<header>
+  <nav class="nav">
+    <div class="brand">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#F2A93B"/>
+            <stop offset="100%" stop-color="#B87333"/>
+          </linearGradient>
+        </defs>
+        <circle cx="32" cy="32" r="31" fill="#201D1A" stroke="url(#logoGrad)" stroke-width="2"/>
+        <path d="M35 12 L20 34 H29 L26 52 L45 26 H35 Z" fill="url(#logoGrad)"/>
+      </svg>
+      <a href="../index.html"><span class="logo-word">ADIE'S <span>ELECTRICAL</span></span></a>
+    </div>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a class="nav-link" href="../index.html#services">Services</a></li>
+      <li><a class="nav-link" href="../index.html#work">Our Work</a></li>
+      <li><a class="nav-link" href="../index.html#coc">COC</a></li>
+      <li><a class="nav-link" href="index.html">Blog</a></li>
+      <li><a class="nav-cta" href="../index.html#booking">Book a Job</a></li>
+    </ul>
+  </nav>
+</header>"""
+
+SITE_FOOTER = f"""<footer>
+  <div class="footer-wrap">
+    <p>&copy; {date.today().year} {BUSINESS_NAME}, Cape Town.</p>
+    <p>{BUSINESS_PHONE_WHATSAPP.replace('+27 ', '0')} &middot; {BUSINESS_EMAIL}</p>
+  </div>
+</footer>
+
+<a class="wa-float" href="{WHATSAPP_LINK}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 32 32" fill="#fff"><path d="M16.001 2.667c-7.364 0-13.334 5.97-13.334 13.334 0 2.353.62 4.66 1.797 6.686L2.667 29.333l6.823-1.789a13.28 13.28 0 0 0 6.51 1.658h.001c7.364 0 13.334-5.97 13.334-13.334S23.365 2.667 16.001 2.667zm0 24.395a11.03 11.03 0 0 1-5.62-1.539l-.403-.24-4.05 1.062 1.081-3.947-.263-.405a11.01 11.01 0 0 1-1.686-5.86c0-6.09 4.955-11.045 11.046-11.045 6.09 0 11.045 4.955 11.045 11.045 0 6.09-4.955 11.045-11.05 11.045l-.1-.001zm6.06-8.272c-.332-.166-1.963-.968-2.268-1.078-.305-.11-.526-.166-.747.166-.222.332-.858 1.078-1.052 1.3-.194.222-.388.25-.72.083-.332-.166-1.401-.516-2.669-1.646-.987-.88-1.654-1.966-1.848-2.298-.194-.332-.021-.512.146-.677.15-.149.332-.388.499-.582.166-.194.222-.332.332-.554.11-.222.055-.416-.028-.582-.083-.166-.747-1.798-1.023-2.462-.27-.648-.544-.56-.747-.57-.194-.01-.416-.012-.638-.012-.222 0-.582.083-.887.416-.305.332-1.163 1.136-1.163 2.77 0 1.633 1.19 3.212 1.356 3.434.166.222 2.343 3.577 5.675 5.017.793.343 1.412.548 1.895.7.796.253 1.52.217 2.093.132.639-.095 1.963-.803 2.24-1.578.277-.775.277-1.44.194-1.578-.083-.138-.305-.222-.638-.388z"/></svg>
+</a>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+</script>"""
+
+
 # --------------------------------------------------------------------------
 # Helpers
 # --------------------------------------------------------------------------
@@ -110,7 +273,7 @@ def slugify(text: str) -> str:
 
 def get_existing_slugs() -> set:
     """Return the set of slugs already used in the blog/ folder, so we can
-    nudge the model away from repeating a topic it already covered."""
+    nudge Gemini away from repeating a topic it already covered."""
     if not os.path.isdir(BLOG_DIR):
         return set()
     slugs = set()
@@ -183,7 +346,7 @@ def generate_article_html(token: str, topic: str) -> str:
     text = re.sub(r"\s*```$", "", text)
 
     if not text:
-        print("ERROR: model returned an empty response.", file=sys.stderr)
+        print("ERROR: Gemini returned an empty response.", file=sys.stderr)
         sys.exit(1)
 
     return text
@@ -199,7 +362,9 @@ def extract_title(article_html: str, fallback: str) -> str:
 
 
 def wrap_full_page(article_html: str, title: str, meta_description: str) -> str:
-    """Wrap the generated article body in a full, standalone HTML page."""
+    """Wrap the generated article body in a full HTML page matching the
+    main site's dark copper/amber theme (header, nav, footer, WhatsApp
+    float button)."""
     today = date.today().isoformat()
     return f"""<!DOCTYPE html>
 <html lang="en-za">
@@ -213,16 +378,198 @@ def wrap_full_page(article_html: str, title: str, meta_description: str) -> str:
 <meta property="og:description" content="{meta_description}">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="{today}">
-<link rel="stylesheet" href="../styles.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+{SHARED_STYLE}
+
+  /* ---------- Blog post article ---------- */
+  .blog-post{{padding:140px 24px 100px;background:var(--charcoal-black);}}
+  .blog-post .wrap{{max-width:760px;}}
+  .blog-post article h1{{
+    font-size:clamp(2rem,4vw,2.8rem);
+    color:var(--cream);
+    font-weight:700;
+    line-height:1.15;
+    margin-bottom:28px;
+  }}
+  .blog-post article h2{{
+    font-size:1.5rem;
+    color:var(--cream);
+    font-weight:600;
+    margin:40px 0 16px;
+  }}
+  .blog-post article h3{{
+    font-size:1.15rem;
+    color:var(--copper-light);
+    font-weight:600;
+    margin:28px 0 12px;
+  }}
+  .blog-post article p{{color:var(--cream-dim);margin-bottom:18px;font-size:1.02rem;}}
+  .blog-post article ul{{margin:0 0 20px 4px;}}
+  .blog-post article li{{
+    color:var(--cream-dim);
+    padding:8px 0 8px 22px;
+    position:relative;
+    font-size:1rem;
+  }}
+  .blog-post article li::before{{
+    content:"";
+    position:absolute;left:0;top:17px;
+    width:8px;height:8px;
+    background:var(--copper);
+    border-radius:1px;
+  }}
+  .blog-post article strong{{color:var(--cream);}}
+  .blog-post article a{{color:var(--copper-light);border-bottom:1px solid var(--copper-light);}}
+  .blog-post article a:hover{{color:var(--amber);border-bottom-color:var(--amber);}}
+  .blog-post .back-link{{
+    display:inline-block;margin-top:44px;
+    color:var(--cream-dim);font-size:0.9rem;
+    border-bottom:1px solid var(--line);
+  }}
+  .blog-post .back-link:hover{{color:var(--amber);}}
+</style>
 </head>
 <body>
-<main class="blog-post">
-<article>
+
+{SITE_HEADER}
+
+<section class="blog-post">
+  <div class="wrap">
+    <article>
 {article_html}
-</article>
-<hr>
-<p><a href="../index.html">&larr; Back to {BUSINESS_NAME} home</a></p>
-</main>
+    </article>
+    <a class="back-link" href="index.html">&larr; Back to all articles</a>
+  </div>
+</section>
+
+{SITE_FOOTER}
+
+</body>
+</html>
+"""
+
+
+def generate_index_html() -> str:
+    """Scan the blog/ folder for existing posts and build an index page
+    listing them as cards, newest first, matching the site's theme."""
+    posts = []
+    if os.path.isdir(BLOG_DIR):
+        for fname in sorted(os.listdir(BLOG_DIR), reverse=True):
+            if not fname.endswith(".html") or fname == "index.html":
+                continue
+            fpath = os.path.join(BLOG_DIR, fname)
+            try:
+                with open(fpath, "r", encoding="utf-8") as f:
+                    content = f.read()
+            except OSError:
+                continue
+
+            title_match = re.search(r"<title>(.*?)\s*\|\s*" + re.escape(BUSINESS_NAME),
+                                     content, re.IGNORECASE | re.DOTALL)
+            title = title_match.group(1).strip() if title_match else fname
+
+            desc_match = re.search(r'<meta name="description" content="(.*?)">', content)
+            description = desc_match.group(1).strip() if desc_match else ""
+
+            date_match = re.match(r"(\d{4}-\d{2}-\d{2})-", fname)
+            post_date = date_match.group(1) if date_match else ""
+
+            posts.append({
+                "filename": fname,
+                "title": title,
+                "description": description,
+                "date": post_date,
+            })
+
+    cards_html = ""
+    if not posts:
+        cards_html = '<p class="no-posts">New articles are on the way - check back soon.</p>'
+    else:
+        for post in posts:
+            cards_html += f"""      <a class="blog-card" href="{post['filename']}">
+        <span class="blog-card-date">{post['date']}</span>
+        <h3>{post['title']}</h3>
+        <p>{post['description']}</p>
+        <span class="blog-card-link">Read article &rarr;</span>
+      </a>
+"""
+
+    return f"""<!DOCTYPE html>
+<html lang="en-za">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog | {BUSINESS_NAME}</title>
+<meta name="description" content="Electrical tips, guides, and local Cape Town advice from {BUSINESS_NAME} - COC inspections, DB board upgrades, solar, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+{SHARED_STYLE}
+
+  /* ---------- Blog index ---------- */
+  .blog-index{{padding:140px 24px 100px;background:var(--charcoal-black);}}
+  .blog-index .section-head h1{{
+    font-size:clamp(2rem,4vw,2.8rem);
+    color:var(--cream);
+    font-weight:700;
+    margin-bottom:14px;
+  }}
+  .blog-index .section-head p{{color:var(--cream-dim);max-width:56ch;}}
+  .blog-grid{{
+    margin-top:48px;
+    display:grid;grid-template-columns:repeat(2,1fr);gap:20px;
+  }}
+  .blog-card{{
+    display:block;
+    background:var(--charcoal);
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:28px;
+    transition:border-color .2s, background .2s;
+  }}
+  .blog-card:hover{{background:var(--charcoal-soft);border-color:var(--copper-light);}}
+  .blog-card-date{{
+    font-family:'Oswald',sans-serif;
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    color:var(--copper-light);
+    text-transform:uppercase;
+  }}
+  .blog-card h3{{
+    font-size:1.15rem;color:var(--cream);font-weight:600;
+    margin:10px 0 10px;text-transform:none;letter-spacing:normal;
+  }}
+  .blog-card p{{color:var(--cream-dim);font-size:0.92rem;margin-bottom:16px;}}
+  .blog-card-link{{color:var(--amber);font-size:0.85rem;font-weight:600;}}
+  .no-posts{{color:var(--cream-dim);}}
+
+  @media (max-width:760px){{
+    .blog-grid{{grid-template-columns:1fr;}}
+  }}
+</style>
+</head>
+<body>
+
+{SITE_HEADER}
+
+<section class="blog-index">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Adie's Electrical Blog</div>
+      <h1>Electrical Tips &amp; Local Cape Town Advice</h1>
+      <p>Practical guides on DB boards, COC certificates, solar, and keeping your home's electrics safe - written for Cape Town homeowners and landlords.</p>
+    </div>
+    <div class="blog-grid">
+{cards_html}    </div>
+  </div>
+</section>
+
+{SITE_FOOTER}
+
 </body>
 </html>
 """
@@ -263,6 +610,14 @@ def main():
         f.write(full_page)
 
     print(f"Blog post written to: {safe_path}")
+
+    # Regenerate the blog index so the new post is immediately listed.
+    index_html = generate_index_html()
+    index_path = os.path.join(BLOG_DIR, "index.html")
+    with open(index_path, "w", encoding="utf-8") as f:
+        f.write(index_html)
+
+    print(f"Blog index updated: {index_path}")
 
 
 if __name__ == "__main__":
