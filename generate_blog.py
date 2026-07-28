@@ -21,6 +21,7 @@ Usage:
 import os
 import re
 import sys
+import json
 import random
 import unicodedata
 from datetime import date, datetime
@@ -54,10 +55,12 @@ BUSINESS_PHONE_WHATSAPP = "+27 84 729 9088"
 BUSINESS_EMAIL = "info@adieselectrical.co.za"
 BUSINESS_WEBSITE = "https://adieselectrical.co.za"
 
-# Rotating pool of local, SEO-relevant topics. The script picks one at
-# random each run and asks the model to avoid duplicating a topic already
-# used (see `get_existing_slugs`).
-TOPIC_POOL = [
+TOPICS_FILE = "topics.json"
+
+# Fallback pool, used only if topics.json is missing or unreadable, so the
+# script never hard-fails just because that file didn't make it into the
+# repo for some reason.
+FALLBACK_TOPIC_POOL = [
     "How much does a DB board upgrade cost in Cape Town",
     "Do I need a COC to sell my house in Cape Town",
     "Signs your home needs an electrical fault finding inspection",
@@ -74,6 +77,27 @@ TOPIC_POOL = [
     "How load shedding stages affect inverter and solar system sizing",
     "Why DIY electrical work is illegal and dangerous in South Africa",
 ]
+
+
+def load_topic_pool() -> list:
+    """Load the topic pool from topics.json (real customer questions,
+    e.g. sourced from Reddit/AnswerThePublic research), falling back to a
+    small built-in list if the file is missing, empty, or invalid."""
+    if os.path.exists(TOPICS_FILE):
+        try:
+            with open(TOPICS_FILE, "r", encoding="utf-8") as f:
+                topics = json.load(f)
+            if isinstance(topics, list) and topics:
+                return topics
+            print(f"WARNING: {TOPICS_FILE} was empty or not a list - using fallback topics.")
+        except (json.JSONDecodeError, OSError) as e:
+            print(f"WARNING: could not read {TOPICS_FILE} ({e}) - using fallback topics.")
+    else:
+        print(f"WARNING: {TOPICS_FILE} not found - using fallback topics.")
+    return FALLBACK_TOPIC_POOL
+
+
+TOPIC_POOL = load_topic_pool()
 
 
 WHATSAPP_LINK = "https://wa.me/27847299088?text=Hi%20Adie%2C%20I%27d%20like%20a%20quote%20for%20electrical%20work"
@@ -467,9 +491,17 @@ def generate_index_html() -> str:
             except OSError:
                 continue
 
-            title_match = re.search(r"<title>(.*?)\s*\|\s*" + re.escape(BUSINESS_NAME),
-                                     content, re.IGNORECASE | re.DOTALL)
-            title = title_match.group(1).strip() if title_match else fname
+            title_match = re.search(r"<title>(.*?)</title>", content, re.IGNORECASE | re.DOTALL)
+            if title_match:
+                title = title_match.group(1).strip()
+                # Strip a trailing " | Business Name" suffix if present,
+                # but don't require it - some posts were added without it.
+                title = re.sub(
+                    r"\s*\|\s*" + re.escape(BUSINESS_NAME) + r"\s*$",
+                    "", title, flags=re.IGNORECASE,
+                )
+            else:
+                title = fname
 
             desc_match = re.search(r'<meta name="description" content="(.*?)">', content)
             description = desc_match.group(1).strip() if desc_match else ""
