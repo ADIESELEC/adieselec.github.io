@@ -3,8 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog | Adie's Electrical Solutions</title>
-<meta name="description" content="Electrical tips, guides, and local Cape Town advice from Adie's Electrical Solutions - COC inspections, DB board upgrades, solar, and more.">
+<title>Top Electrical Upgrades to Enhance Safety in Your Cape Town Home | Adie's Electrical Solutions</title>
+<meta name="description" content="If you’re a homeowner or landlord in the Cape Town Metro area, ensuring your property's electrical system is safe and up-to-date is crucial. For peace of mind a">
+<meta name="author" content="Adie's Electrical Solutions">
+<meta property="og:title" content="Top Electrical Upgrades to Enhance Safety in Your Cape Town Home">
+<meta property="og:description" content="If you’re a homeowner or landlord in the Cape Town Metro area, ensuring your property's electrical system is safe and up-to-date is crucial. For peace of mind a">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2026-07-28">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -120,46 +125,52 @@
   .wa-float svg{width:30px;height:30px;}
 
 
-  /* ---------- Blog index ---------- */
-  .blog-index{padding:140px 24px 100px;background:var(--charcoal-black);}
-  .blog-index .section-head h1{
+  /* ---------- Blog post article ---------- */
+  .blog-post{padding:140px 24px 100px;background:var(--charcoal-black);}
+  .blog-post .wrap{max-width:760px;}
+  .blog-post article h1{
     font-size:clamp(2rem,4vw,2.8rem);
     color:var(--cream);
     font-weight:700;
-    margin-bottom:14px;
+    line-height:1.15;
+    margin-bottom:28px;
   }
-  .blog-index .section-head p{color:var(--cream-dim);max-width:56ch;}
-  .blog-grid{
-    margin-top:48px;
-    display:grid;grid-template-columns:repeat(2,1fr);gap:20px;
+  .blog-post article h2{
+    font-size:1.5rem;
+    color:var(--cream);
+    font-weight:600;
+    margin:40px 0 16px;
   }
-  .blog-card{
-    display:block;
-    background:var(--charcoal);
-    border:1px solid var(--line);
-    border-radius:4px;
-    padding:28px;
-    transition:border-color .2s, background .2s;
-  }
-  .blog-card:hover{background:var(--charcoal-soft);border-color:var(--copper-light);}
-  .blog-card-date{
-    font-family:'Oswald',sans-serif;
-    font-size:0.72rem;
-    letter-spacing:0.08em;
+  .blog-post article h3{
+    font-size:1.15rem;
     color:var(--copper-light);
-    text-transform:uppercase;
+    font-weight:600;
+    margin:28px 0 12px;
   }
-  .blog-card h3{
-    font-size:1.15rem;color:var(--cream);font-weight:600;
-    margin:10px 0 10px;text-transform:none;letter-spacing:normal;
+  .blog-post article p{color:var(--cream-dim);margin-bottom:18px;font-size:1.02rem;}
+  .blog-post article ul{margin:0 0 20px 4px;}
+  .blog-post article li{
+    color:var(--cream-dim);
+    padding:8px 0 8px 22px;
+    position:relative;
+    font-size:1rem;
   }
-  .blog-card p{color:var(--cream-dim);font-size:0.92rem;margin-bottom:16px;}
-  .blog-card-link{color:var(--amber);font-size:0.85rem;font-weight:600;}
-  .no-posts{color:var(--cream-dim);}
-
-  @media (max-width:760px){
-    .blog-grid{grid-template-columns:1fr;}
+  .blog-post article li::before{
+    content:"";
+    position:absolute;left:0;top:17px;
+    width:8px;height:8px;
+    background:var(--copper);
+    border-radius:1px;
   }
+  .blog-post article strong{color:var(--cream);}
+  .blog-post article a{color:var(--copper-light);border-bottom:1px solid var(--copper-light);}
+  .blog-post article a:hover{color:var(--amber);border-bottom-color:var(--amber);}
+  .blog-post .back-link{
+    display:inline-block;margin-top:44px;
+    color:var(--cream-dim);font-size:0.9rem;
+    border-bottom:1px solid var(--line);
+  }
+  .blog-post .back-link:hover{color:var(--amber);}
 </style>
 </head>
 <body>
@@ -190,69 +201,58 @@
   </nav>
 </header>
 
-<section class="blog-index">
+<section class="blog-post">
   <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">Adie's Electrical Blog</div>
-      <h1>Electrical Tips &amp; Local Cape Town Advice</h1>
-      <p>Practical guides on DB boards, COC certificates, solar, and keeping your home's electrics safe - written for Cape Town homeowners and landlords.</p>
-    </div>
-    <div class="blog-grid">
-      <a class="blog-card" href="solar-system-check.html">
-        <span class="blog-card-date"></span>
-        <h3>Is Your Solar System Working Properly? Load Shedding Backup Check</h3>
-        <p>Not sure if your inverter and battery setup is actually protecting you during load shedding? Here's how to check if your solar system is underperforming.</p>
-        <span class="blog-card-link">Read article &rarr;</span>
-      </a>
-      <a class="blog-card" href="solar-installation-benefits.html">
-        <span class="blog-card-date"></span>
-        <h3>Benefits of Solar Installation in South Africa: Beyond Load Shedding</h3>
-        <p>Solar installation isn't just about load shedding — the real cost savings, property value, and tariff protection benefits for Cape Town homeowners.</p>
-        <span class="blog-card-link">Read article &rarr;</span>
-      </a>
-      <a class="blog-card" href="prepaid-electricity-tariffs.html">
-        <span class="blog-card-date"></span>
-        <h3>Prepaid Electricity Tariffs Explained: How to Save Money in South Africa</h3>
-        <p>How prepaid electricity tariffs work in South Africa (inclining block rates explained), plus simple ways to make your prepaid units last longer.</p>
-        <span class="blog-card-link">Read article &rarr;</span>
-      </a>
-      <a class="blog-card" href="electrical-warning-signs.html">
-        <span class="blog-card-date"></span>
-        <h3>5 Signs You Need an Electrician: Warning Signs of Faulty Wiring at Home</h3>
-        <p>Tripping breakers, warm plug points, flickering lights — the early warning signs of faulty home wiring in South Africa, before they become a fire risk.</p>
-        <span class="blog-card-link">Read article &rarr;</span>
-      </a>
-      <a class="blog-card" href="certificate-of-compliance-explained.html">
-        <span class="blog-card-date"></span>
-        <h3>What Is a COC (Certificate of Compliance)? Cape Town Electrician Explains</h3>
-        <p>Do you need a COC to sell your house in South Africa? Here's what a Certificate of Compliance covers, when it's legally required, and how to get one in Cape Town.</p>
-        <span class="blog-card-link">Read article &rarr;</span>
-      </a>
-      <a class="blog-card" href="2026-07-28-top-electrical-upgrades-to-enhance-safety-in-your-cape-town-home.html">
-        <span class="blog-card-date">2026-07-28</span>
-        <h3>Top Electrical Upgrades to Enhance Safety in Your Cape Town Home</h3>
-        <p>If you’re a homeowner or landlord in the Cape Town Metro area, ensuring your property's electrical system is safe and up-to-date is crucial. For peace of mind a</p>
-        <span class="blog-card-link">Read article &rarr;</span>
-      </a>
-      <a class="blog-card" href="2026-07-27-why-diy-electrical-work-is-illegal-and-dangerous-in-cape-town.html">
-        <span class="blog-card-date">2026-07-27</span>
-        <h3>Why DIY Electrical Work is Illegal and Dangerous in Cape Town</h3>
-        <p>As a homeowner or landlord in Cape Town, you may be tempted to tackle electrical repairs or installations on your own. While DIY projects can be rewarding, elec</p>
-        <span class="blog-card-link">Read article &rarr;</span>
-      </a>
-      <a class="blog-card" href="2026-07-27-understanding-the-certificate-of-compliance-coc-essential-for-property-sales-in-.html">
-        <span class="blog-card-date">2026-07-27</span>
-        <h3>Understanding the Certificate of Compliance (COC): Essential for Property Sales in Cape Town</h3>
-        <p>As a homeowner or landlord in Cape Town, it’s essential to understand the significance of a Certificate of Compliance (COC) when selling a property. This docume</p>
-        <span class="blog-card-link">Read article &rarr;</span>
-      </a>
-      <a class="blog-card" href="2026-07-26-essential-tips-for-selecting-a-licensed-electrician-in-cape-town.html">
-        <span class="blog-card-date">2026-07-26</span>
-        <h3>Essential Tips for Selecting a Licensed Electrician in Cape Town</h3>
-        <p>When it comes to electrical work in your home, choosing a qualified and licensed electrician is crucial. Whether you're a homeowner or a landlord in Cape Town,</p>
-        <span class="blog-card-link">Read article &rarr;</span>
-      </a>
-    </div>
+    <article>
+<h1>Top Electrical Upgrades to Enhance Safety in Your Cape Town Home</h1>
+
+<p>If you’re a homeowner or landlord in the Cape Town Metro area, ensuring your property's electrical system is safe and up-to-date is crucial. For peace of mind and enhanced safety, consider the following electrical upgrades for your home. Adie's Electrical Solutions is here to guide you through the best practices.</p>
+
+<h2>Why Upgrade Your Electrical System?</h2>
+
+<p>As homes age, their electrical systems can become outdated, leading to increased risk of electrical fires, blown fuses, or shock hazards. By investing in electrical upgrades, you not only improve safety but also enhance your property's value. Plus, modern systems can help you save on energy costs.</p>
+
+<h2>Essential Electrical Upgrades for Safety</h2>
+
+<h3>1. Circuit Breaker Panel Upgrade</h3>
+
+<p>Your circuit breaker panel is the heart of your electrical system. If it’s old or not functioning efficiently, upgrading to a modern breaker panel can prevent overloads and short circuits. This is particularly important for older homes in Retreat and surrounding areas where demand for electricity has increased.</p>
+
+<h3>2. GFCI Outlets</h3>
+
+<p>Ground Fault Circuit Interrupter (GFCI) outlets are essential in areas prone to moisture, such as kitchens and bathrooms. These outlets help prevent electric shocks by shutting off power when they detect imbalances. Installing GFCI outlets is a smart safety upgrade for any home.</p>
+
+<h3>3. Whole-House Surge Protectors</h3>
+
+<p>Lightning strikes and power surges can damage electronic devices and appliances. A whole-house surge protector is an affordable investment to shield your home from these unexpected events. This upgrade can save you money in the long run by protecting your valuables.</p>
+
+<h3>4. Updated Wiring</h3>
+
+<p>If your home still has aluminum wiring or outdated wiring systems, replacing them with modern, copper wiring can significantly enhance safety and efficiency. Older wiring may not handle current electrical loads, posing serious hazards.</p>
+
+<h3>5. Smart Home Technology</h3>
+
+<p>Investing in smart home devices like smart smoke detectors or smart thermostats can enhance safety while improving energy efficiency. These devices can alert you to potential hazards and allow you to monitor your home remotely.</p>
+
+<h2>Considerations Before Upgrading</h2>
+
+<p>Before making any upgrades, consider the following:</p>
+
+<ul>
+    <li>Assess the age of your electrical system.</li>
+    <li>Evaluate the electrical load demands of your household.</li>
+    <li>Consult with a licensed electrician to understand your options.</li>
+</ul>
+
+<h2>Why Choose Adie's Electrical Solutions?</h2>
+
+<p>When it comes to electrical upgrades in Cape Town, Adie's Electrical Solutions is your trusted local expert. With a commitment to safety and customer satisfaction, we ensure all upgrades meet local codes and regulations.</p>
+
+<h2>Get Started with Your Electrical Upgrade</h2>
+
+<p>Upgrading your home’s electrical system can provide peace of mind and enhance safety. If you’re interested in improving the electrical safety of your home or property, <strong>contact Adie's Electrical Solutions today</strong>. Reach out via WhatsApp at <strong><a href="https://wa.me/27847299088">+27 84 729 9088</a></strong> or email us at <strong><a href="mailto:info@adieselectrical.co.za">info@adieselectrical.co.za</a></strong> for a quote or inspection.</p>
+    </article>
+    <a class="back-link" href="index.html">&larr; Back to all articles</a>
   </div>
 </section>
 
