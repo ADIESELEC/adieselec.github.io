@@ -393,6 +393,15 @@ def wrap_full_page(article_html: str, title: str, meta_description: str) -> str:
     return f"""<!DOCTYPE html>
 <html lang="en-za">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z69GM551P2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z69GM551P2');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>{title} | {BUSINESS_NAME}</title>
@@ -532,6 +541,15 @@ def generate_index_html() -> str:
     return f"""<!DOCTYPE html>
 <html lang="en-za">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z69GM551P2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){{dataLayer.push(arguments);}}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z69GM551P2');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog | {BUSINESS_NAME}</title>
