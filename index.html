@@ -274,6 +274,60 @@
     .service-grid{grid-template-columns:1fr;}
   }
 
+  /* ---------- Reviews ---------- */
+  .reviews{background:var(--charcoal-black);}
+  .review-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .review-card{
+    background:var(--charcoal);
+    padding:34px 28px;
+    transition:background .25s;
+  }
+  .review-card:hover{background:var(--charcoal-soft);}
+  .review-stars{
+    color:var(--amber);
+    font-size:1rem;
+    letter-spacing:2px;
+    margin-bottom:16px;
+  }
+  .review-stars .star-empty{color:var(--wire-off);}
+  .review-text{
+    color:var(--cream-dim);
+    font-size:0.92rem;
+    margin-bottom:18px;
+    line-height:1.6;
+  }
+  .review-author{
+    font-family:'Oswald',sans-serif;
+    font-size:0.8rem;
+    color:var(--cream);
+    font-weight:600;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    display:flex;align-items:center;gap:8px;
+  }
+  .review-badge{
+    font-family:'Karla',sans-serif;
+    font-size:0.7rem;
+    font-weight:500;
+    text-transform:none;
+    color:var(--copper-light);
+    background:rgba(184,115,51,0.15);
+    padding:2px 8px;
+    border-radius:10px;
+    letter-spacing:0;
+  }
+
+  @media (max-width:900px){
+    .review-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:560px){
+    .review-grid{grid-template-columns:1fr;}
+  }
+
   /* ---------- COC explainer ---------- */
   .coc{
     background:var(--charcoal-black);
@@ -519,6 +573,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a class="nav-link" href="#services">Services</a></li>
       <li><a class="nav-link" href="#work">Our Work</a></li>
+      <li><a class="nav-link" href="#reviews">Reviews</a></li>
       <li><a class="nav-link" href="#coc">COC</a></li>
       <li><a class="nav-link" href="#certifications">Certifications</a></li>
       <li><a class="nav-link" href="#process">How it works</a></li>
@@ -651,6 +706,55 @@
       <div class="work-item">
         <img src="images/work-10.jpg" alt="Electrical work photo 10" onerror="this.parentElement.classList.add('img-missing')">
         <div class="img-missing-label"><b>Add photo</b>images/work-10.jpg</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<svg class="wire-divider" viewBox="0 0 1120 40" preserveAspectRatio="none">
+  <path class="wire-path charged" d="M0,20 L1120,20"/>
+  <circle class="spark" cx="0" cy="20">
+    <animateMotion dur="2.6s" repeatCount="indefinite" path="M0,20 L1120,20"/>
+  </circle>
+</svg>
+
+<section class="reviews" id="reviews">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow">Customer Reviews</div>
+      <h2>What Cape Town Customers Say</h2>
+      <p>Real reviews from Google, straight from recent jobs.</p>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Very happy with the service received, quick, easy and professional. Would definitely recommend Adrian."</p>
+        <div class="review-author">Warren Pass</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;<span class="star-empty">&#9733;</span></div>
+        <p class="review-text">"Adie's did an electrical fix for me. I was impressed with his prompt service and good manners."</p>
+        <div class="review-author">Sharyn Dabbs <span class="review-badge">Local Guide</span></div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Fast, effective, reliable, got the job done when I was in a hurry and didn't break the bank. Friendly service and got all the know how, both thumbs up!"</p>
+        <div class="review-author">Tank Vdm</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Prompt, reliable and tidy worker."</p>
+        <div class="review-author">Dave Eadie</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Fantastic service - friendly, punctual, awesome workmanship and great price, THANK YOU 🙏"</p>
+        <div class="review-author">Laetitia Reesberg</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Great and efficient service! Fast assistance. Great communication and very reasonably priced!"</p>
+        <div class="review-author">Helen Champanis</div>
       </div>
     </div>
   </div>
