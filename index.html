@@ -550,6 +550,35 @@
   }
   .wa-float:hover{transform:scale(1.08);}
   .wa-float svg{width:30px;height:30px;}
+
+  /* ---------- Lightbox ---------- */
+  .work-item img, .cert-item img{cursor:zoom-in;}
+  .lightbox{
+    position:fixed;inset:0;z-index:100;
+    background:rgba(20,18,15,0.94);
+    display:none;
+    align-items:center;justify-content:center;
+    padding:40px;
+    cursor:zoom-out;
+  }
+  .lightbox.open{display:flex;}
+  .lightbox img{
+    max-width:90vw;max-height:85vh;
+    object-fit:contain;
+    border-radius:4px;
+    border:1px solid var(--line);
+    box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close{
+    position:fixed;top:24px;right:28px;
+    color:var(--cream);
+    font-size:2rem;
+    line-height:1;
+    background:none;border:none;
+    cursor:pointer;
+    z-index:101;
+  }
+  .lightbox-close:hover{color:var(--amber);}
 </style>
 </head>
 <body>
@@ -947,6 +976,11 @@
   <svg viewBox="0 0 32 32" fill="#fff"><path d="M16.001 2.667c-7.364 0-13.334 5.97-13.334 13.334 0 2.353.62 4.66 1.797 6.686L2.667 29.333l6.823-1.789a13.28 13.28 0 0 0 6.51 1.658h.001c7.364 0 13.334-5.97 13.334-13.334S23.365 2.667 16.001 2.667zm0 24.395a11.03 11.03 0 0 1-5.62-1.539l-.403-.24-4.05 1.062 1.081-3.947-.263-.405a11.01 11.01 0 0 1-1.686-5.86c0-6.09 4.955-11.045 11.046-11.045 6.09 0 11.045 4.955 11.045 11.045 0 6.09-4.955 11.045-11.05 11.045l-.1-.001zm6.06-8.272c-.332-.166-1.963-.968-2.268-1.078-.305-.11-.526-.166-.747.166-.222.332-.858 1.078-1.052 1.3-.194.222-.388.25-.72.083-.332-.166-1.401-.516-2.669-1.646-.987-.88-1.654-1.966-1.848-2.298-.194-.332-.021-.512.146-.677.15-.149.332-.388.499-.582.166-.194.222-.332.332-.554.11-.222.055-.416-.028-.582-.083-.166-.747-1.798-1.023-2.462-.27-.648-.544-.56-.747-.57-.194-.01-.416-.012-.638-.012-.222 0-.582.083-.887.416-.305.332-1.163 1.136-1.163 2.77 0 1.633 1.19 3.212 1.356 3.434.166.222 2.343 3.577 5.675 5.017.793.343 1.412.548 1.895.7.796.253 1.52.217 2.093.132.639-.095 1.963-.803 2.24-1.578.277-.775.277-1.44.194-1.578-.083-.138-.305-.222-.638-.388z"/></svg>
 </a>
 
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -962,6 +996,24 @@
     });
   }, {threshold:0.4});
   wires.forEach(w => io.observe(w));
+
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightboxImg');
+  const lightboxClose = document.getElementById('lightboxClose');
+
+  document.querySelectorAll('.work-item img, .cert-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      if(img.parentElement.classList.contains('img-missing')) return;
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('open');
+    });
+  });
+
+  function closeLightbox(){ lightbox.classList.remove('open'); lightboxImg.src=''; }
+  lightboxClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => { if(e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', (e) => { if(e.key === 'Escape') closeLightbox(); });
 </script>
 
 </body>
