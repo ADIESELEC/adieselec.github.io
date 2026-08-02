@@ -550,9 +550,11 @@
   }
   .wa-float:hover{transform:scale(1.08);}
   .wa-float svg{width:30px;height:30px;}
-
-  /* ---------- Lightbox ---------- */
-  .work-item img, .cert-item img{cursor:zoom-in;}
+/* ---------- Lightbox ---------- */
+  .work-item img, .cert-item img{
+    cursor:zoom-in;
+    -webkit-tap-highlight-color: transparent;
+  }
   .lightbox{
     position:fixed;inset:0;z-index:100;
     background:rgba(20,18,15,0.94);
