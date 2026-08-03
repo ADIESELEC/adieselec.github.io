@@ -63,6 +63,31 @@
   footer{background:var(--charcoal);border-top:1px solid var(--line);padding:40px 24px;margin-top:40px;}
   .footer-wrap{max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;}
   .footer-wrap p{color:var(--cream-dim);font-size:0.85rem;}
+
+  /* ---------- Related articles ---------- */
+  .related-articles{margin-top:56px;padding-top:40px;border-top:1px solid var(--line);}
+  .related-articles h2{
+    font-size:1.3rem;color:var(--cream);font-weight:600;
+    margin-bottom:20px;text-transform:none;letter-spacing:normal;
+  }
+  .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .related-card{
+    display:block;background:var(--charcoal);
+    border:1px solid var(--line);border-radius:4px;padding:20px;
+    transition:border-color .2s, background .2s;
+    text-decoration:none;
+  }
+  .related-card:hover{background:var(--charcoal-soft);border-color:var(--copper-light);}
+  .related-label{
+    font-family:'Oswald',sans-serif;font-size:0.68rem;letter-spacing:0.1em;
+    color:var(--copper-light);text-transform:uppercase;
+  }
+  .related-card h3{
+    font-size:0.98rem;color:var(--cream);font-weight:600;
+    margin:8px 0 8px;text-transform:none;letter-spacing:normal;
+  }
+  .related-card p{color:var(--cream-dim);font-size:0.85rem;margin-bottom:0;}
+  @media (max-width:760px){.related-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -125,6 +150,26 @@
       <a class="btn" href="https://wa.me/27847299088?text=Hi%20Adie%2C%20I%27d%20like%20to%20book%20a%20COC%20inspection" target="_blank" rel="noopener">Chat on WhatsApp</a>
     </div>
   </article>
+    <div class="related-articles">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+      <a class="related-card" href="solar-system-check.html">
+        <span class="related-label">Read Next</span>
+        <h3>Is Your Solar System Working Properly? Load Shedding Backup Check</h3>
+        <p>Not sure if your inverter and battery setup is actually protecting you during load shedding?...</p>
+      </a>
+      <a class="related-card" href="prepaid-electricity-tariffs.html">
+        <span class="related-label">Read Next</span>
+        <h3>Prepaid Electricity Tariffs Explained: How to Save Money in South Africa</h3>
+        <p>How prepaid electricity tariffs work in South Africa (inclining block rates explained), plus...</p>
+      </a>
+      <a class="related-card" href="2026-07-27-why-diy-electrical-work-is-illegal-and-dangerous-in-cape-town.html">
+        <span class="related-label">Read Next</span>
+        <h3>Why DIY Electrical Work is Illegal and Dangerous in Cape Town</h3>
+        <p>As a homeowner or landlord in Cape Town, you may be tempted to tackle electrical repairs or...</p>
+      </a>
+      </div>
+    </div>
 </div>
 
 <footer>
