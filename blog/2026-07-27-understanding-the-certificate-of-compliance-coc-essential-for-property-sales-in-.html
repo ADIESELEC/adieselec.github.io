@@ -180,6 +180,30 @@
     border-bottom:1px solid var(--line);
   }
   .blog-post .back-link:hover{color:var(--amber);}
+
+  /* ---------- Related articles ---------- */
+  .related-articles{margin-top:56px;padding-top:40px;border-top:1px solid var(--line);}
+  .related-articles h2{
+    font-size:1.3rem;color:var(--cream);font-weight:600;
+    margin-bottom:20px;text-transform:none;letter-spacing:normal;
+  }
+  .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+  .related-card{
+    display:block;background:var(--charcoal);
+    border:1px solid var(--line);border-radius:4px;padding:20px;
+    transition:border-color .2s, background .2s;
+  }
+  .related-card:hover{background:var(--charcoal-soft);border-color:var(--copper-light);}
+  .related-label{
+    font-family:'Oswald',sans-serif;font-size:0.68rem;letter-spacing:0.1em;
+    color:var(--copper-light);text-transform:uppercase;
+  }
+  .related-card h3{
+    font-size:0.98rem;color:var(--cream);font-weight:600;
+    margin:8px 0 8px;text-transform:none;letter-spacing:normal;
+  }
+  .related-card p{color:var(--cream-dim);font-size:0.85rem;margin-bottom:0;}
+  @media (max-width:760px){.related-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -258,6 +282,26 @@
 
 <p>Don’t let the absence of a COC hinder your property sale. Contact us today via WhatsApp at <strong>+27 84 729 9088</strong> or email us at <strong><a href="mailto:info@adieselectrical.co.za">info@adieselectrical.co.za</a></strong> for a quote or to schedule an inspection. Your safety and peace of mind are our top priorities!</p>
     </article>
+    <div class="related-articles">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+      <a class="related-card" href="2026-07-26-essential-tips-for-selecting-a-licensed-electrician-in-cape-town.html">
+        <span class="related-label">Read Next</span>
+        <h3>Essential Tips for Selecting a Licensed Electrician in Cape Town</h3>
+        <p>When it comes to electrical work in your home, choosing a qualified and licensed electrician is...</p>
+      </a>
+      <a class="related-card" href="2026-07-27-why-diy-electrical-work-is-illegal-and-dangerous-in-cape-town.html">
+        <span class="related-label">Read Next</span>
+        <h3>Why DIY Electrical Work is Illegal and Dangerous in Cape Town</h3>
+        <p>As a homeowner or landlord in Cape Town, you may be tempted to tackle electrical repairs or...</p>
+      </a>
+      <a class="related-card" href="2026-07-28-top-electrical-upgrades-to-enhance-safety-in-your-cape-town-home.html">
+        <span class="related-label">Read Next</span>
+        <h3>Top Electrical Upgrades to Enhance Safety in Your Cape Town Home</h3>
+        <p>If you’re a homeowner or landlord in the Cape Town Metro area, ensuring your property's...</p>
+      </a>
+      </div>
+    </div>
     <a class="back-link" href="index.html">&larr; Back to all articles</a>
   </div>
 </section>
