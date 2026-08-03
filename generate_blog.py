@@ -385,7 +385,64 @@ def extract_title(article_html: str, fallback: str) -> str:
     return fallback
 
 
-def wrap_full_page(article_html: str, title: str, meta_description: str) -> str:
+def generate_related_articles_html(current_filename: str = None, limit: int = 3) -> str:
+    """Scan the blog/ folder for other posts and build a "Related Articles"
+    section linking to up to `limit` of them, chosen at random for variety.
+    Returns an empty string if there are no other posts yet (e.g. the very
+    first post ever published)."""
+    posts = []
+    if os.path.isdir(BLOG_DIR):
+        for fname in os.listdir(BLOG_DIR):
+            if not fname.endswith(".html") or fname == "index.html":
+                continue
+            if current_filename and fname == current_filename:
+                continue
+            fpath = os.path.join(BLOG_DIR, fname)
+            try:
+                with open(fpath, "r", encoding="utf-8") as f:
+                    content = f.read()
+            except OSError:
+                continue
+
+            title_match = re.search(r"<title>(.*?)</title>", content, re.IGNORECASE | re.DOTALL)
+            if not title_match:
+                continue
+            post_title = title_match.group(1).strip()
+            post_title = re.sub(
+                r"\s*\|\s*" + re.escape(BUSINESS_NAME) + r"\s*$",
+                "", post_title, flags=re.IGNORECASE,
+            )
+
+            desc_match = re.search(r'<meta name="description" content="(.*?)">', content)
+            description = desc_match.group(1).strip() if desc_match else ""
+            if len(description) > 100:
+                description = description[:97].rsplit(" ", 1)[0] + "..."
+
+            posts.append({"filename": fname, "title": post_title, "description": description})
+
+    if not posts:
+        return ""
+
+    random.shuffle(posts)
+    chosen = posts[:limit]
+
+    cards = ""
+    for post in chosen:
+        cards += f"""      <a class="related-card" href="{post['filename']}">
+        <span class="related-label">Read Next</span>
+        <h3>{post['title']}</h3>
+        <p>{post['description']}</p>
+      </a>
+"""
+
+    return f"""    <div class="related-articles">
+      <h2>Related Articles</h2>
+      <div class="related-grid">
+{cards}      </div>
+    </div>"""
+
+
+def wrap_full_page(article_html: str, title: str, meta_description: str, related_html: str = "") -> str:
     """Wrap the generated article body in a full HTML page matching the
     main site's dark copper/amber theme (header, nav, footer, WhatsApp
     float button)."""
@@ -463,6 +520,30 @@ def wrap_full_page(article_html: str, title: str, meta_description: str) -> str:
     border-bottom:1px solid var(--line);
   }}
   .blog-post .back-link:hover{{color:var(--amber);}}
+
+  /* ---------- Related articles ---------- */
+  .related-articles{{margin-top:56px;padding-top:40px;border-top:1px solid var(--line);}}
+  .related-articles h2{{
+    font-size:1.3rem;color:var(--cream);font-weight:600;
+    margin-bottom:20px;text-transform:none;letter-spacing:normal;
+  }}
+  .related-grid{{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}}
+  .related-card{{
+    display:block;background:var(--charcoal);
+    border:1px solid var(--line);border-radius:4px;padding:20px;
+    transition:border-color .2s, background .2s;
+  }}
+  .related-card:hover{{background:var(--charcoal-soft);border-color:var(--copper-light);}}
+  .related-label{{
+    font-family:'Oswald',sans-serif;font-size:0.68rem;letter-spacing:0.1em;
+    color:var(--copper-light);text-transform:uppercase;
+  }}
+  .related-card h3{{
+    font-size:0.98rem;color:var(--cream);font-weight:600;
+    margin:8px 0 8px;text-transform:none;letter-spacing:normal;
+  }}
+  .related-card p{{color:var(--cream-dim);font-size:0.85rem;margin-bottom:0;}}
+  @media (max-width:760px){{.related-grid{{grid-template-columns:1fr;}}}}
 </style>
 </head>
 <body>
@@ -474,6 +555,7 @@ def wrap_full_page(article_html: str, title: str, meta_description: str) -> str:
     <article>
 {article_html}
     </article>
+{related_html}
     <a class="back-link" href="index.html">&larr; Back to all articles</a>
   </div>
 </section>
@@ -643,8 +725,6 @@ def main():
     else:
         meta_description = title
 
-    full_page = wrap_full_page(article_html, title, meta_description)
-
     today_str = datetime.now().strftime("%Y-%m-%d")
     slug = slugify(title if title else topic)
     filename = f"{today_str}-{slug}.html"
@@ -655,6 +735,9 @@ def main():
     if not safe_path.startswith(BLOG_DIR + os.sep) and safe_path != BLOG_DIR:
         print("ERROR: unsafe file path generated, aborting.", file=sys.stderr)
         sys.exit(1)
+
+    related_html = generate_related_articles_html(current_filename=filename)
+    full_page = wrap_full_page(article_html, title, meta_description, related_html)
 
     with open(safe_path, "w", encoding="utf-8") as f:
         f.write(full_page)
