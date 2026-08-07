@@ -3,16 +3,20 @@
 generate_blog.py
 
 Automated weekly SEO blog post generator for Adie's Electrical Solutions
-(Cape Town electrician business). Uses GitHub Models (free, tied to your
-GitHub account/repo token - no separate signup or billing) to write a
-localized, SEO-friendly blog post as a standalone HTML file and saves it
-into the blog/ folder.
+(Cape Town electrician business). Uses OpenRouter (free tier, OpenAI-compatible
+API) to write a localized, SEO-friendly blog post as a standalone HTML file
+and saves it into the blog/ folder.
+
+NOTE: This previously ran on GitHub Models, which was permanently retired
+by GitHub on July 30, 2026. It now points at OpenRouter instead - same
+OpenAI SDK, just a different base_url, api key, and model name.
 
 Environment variables required:
-    GITHUB_TOKEN - Provided automatically inside GitHub Actions.
-                   For local runs, create a fine-grained PAT with
-                   "Models: read" permission at
-                   https://github.com/settings/personal-access-tokens
+    OPENROUTER_API_KEY - Your OpenRouter API key (free, no card required).
+                          Sign up at https://openrouter.ai/keys, generate a
+                          key, then add it as a GitHub Actions repo secret
+                          named OPENROUTER_API_KEY (Settings -> Secrets and
+                          variables -> Actions -> New repository secret).
 
 Usage:
     python generate_blog.py
@@ -43,11 +47,11 @@ except ImportError:
 
 BLOG_DIR = "blog"
 
-# GitHub Models exposes an OpenAI-compatible endpoint. Auth uses a GitHub
-# token (the default GITHUB_TOKEN in Actions works, as long as the workflow
-# grants "models: read" permission - see auto_blog.yml).
-GITHUB_MODELS_ENDPOINT = "https://models.github.ai/inference"
-MODEL_NAME = "openai/gpt-4o-mini"  # free via GitHub Models
+# OpenRouter exposes an OpenAI-compatible endpoint. Auth uses an OpenRouter
+# API key (free, no card required - see https://openrouter.ai/keys), stored
+# as the OPENROUTER_API_KEY repo secret in GitHub Actions.
+OPENROUTER_ENDPOINT = "https://openrouter.ai/api/v1"
+MODEL_NAME = "openai/gpt-oss-120b:free"  # free tier on OpenRouter
 
 BUSINESS_NAME = "Adie's Electrical Solutions"
 BUSINESS_LOCATION = "Cape Town Metro (Retreat)"
@@ -268,17 +272,17 @@ SITE_FOOTER = f"""<footer>
 # --------------------------------------------------------------------------
 
 def check_environment() -> str:
-    """Verify required environment variables and return the GitHub token."""
-    token = os.environ.get("GITHUB_TOKEN")
+    """Verify required environment variables and return the OpenRouter API key."""
+    token = os.environ.get("OPENROUTER_API_KEY")
     if not token:
         print(
-            "ERROR: GITHUB_TOKEN environment variable is not set.\n"
-            "Inside GitHub Actions this is provided automatically - make\n"
-            "sure the workflow passes it in as an env var (see auto_blog.yml).\n"
-            "For local runs, create a fine-grained personal access token with\n"
-            "'Models: read' permission at:\n"
-            "  https://github.com/settings/personal-access-tokens\n"
-            "and export it as GITHUB_TOKEN.",
+            "ERROR: OPENROUTER_API_KEY environment variable is not set.\n"
+            "Inside GitHub Actions this must be added as a repo secret -\n"
+            "Settings -> Secrets and variables -> Actions -> New repository\n"
+            "secret, named OPENROUTER_API_KEY (see auto_blog.yml).\n"
+            "For local runs, sign up for a free key at\n"
+            "  https://openrouter.ai/keys\n"
+            "and export it as OPENROUTER_API_KEY.",
             file=sys.stderr,
         )
         sys.exit(1)
@@ -353,7 +357,7 @@ Requirements:
 
 def generate_article_html(token: str, topic: str) -> str:
     client = OpenAI(
-        base_url=GITHUB_MODELS_ENDPOINT,
+        base_url=OPENROUTER_ENDPOINT,
         api_key=token,
     )
 
@@ -402,6 +406,12 @@ def generate_related_articles_html(current_filename: str = None, limit: int = 3)
                 with open(fpath, "r", encoding="utf-8") as f:
                     content = f.read()
             except OSError:
+                continue
+
+            # Skip consolidated/redirected pages (noindex stubs) so they never
+            # get suggested as a "related" read - they just bounce the visitor
+            # straight through to the canonical page anyway.
+            if re.search(r'name="robots"\s+content="[^"]*noindex', content, re.IGNORECASE):
                 continue
 
             title_match = re.search(r"<title>(.*?)</title>", content, re.IGNORECASE | re.DOTALL)
