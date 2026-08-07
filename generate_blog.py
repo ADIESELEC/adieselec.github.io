@@ -51,7 +51,7 @@ BLOG_DIR = "blog"
 # API key (free, no card required - see https://openrouter.ai/keys), stored
 # as the OPENROUTER_API_KEY repo secret in GitHub Actions.
 OPENROUTER_ENDPOINT = "https://openrouter.ai/api/v1"
-MODEL_NAME = "openai/gpt-oss-120b:free"  # free tier on OpenRouter
+MODEL_NAME = "openrouter/free"
 
 BUSINESS_NAME = "Adie's Electrical Solutions"
 BUSINESS_LOCATION = "Cape Town Metro (Retreat)"
