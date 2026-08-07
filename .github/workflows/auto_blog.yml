@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: write
-  models: read
 
 jobs:
   generate-blog-post:
@@ -31,7 +30,7 @@ jobs:
 
       - name: Generate blog post
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
         run: python generate_blog.py
 
       - name: Commit and push new blog post
