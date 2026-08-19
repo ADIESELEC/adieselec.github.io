@@ -204,6 +204,35 @@
   }
   .related-card p{color:var(--cream-dim);font-size:0.85rem;margin-bottom:0;}
   @media (max-width:760px){.related-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Post CTA strip (pricing / areas) ---------- */
+  .post-cta{
+    margin-top:44px;
+    background:linear-gradient(90deg, rgba(184,115,51,0.14), rgba(242,169,59,0.08));
+    border:1px solid var(--line);
+    border-radius:4px;
+    padding:26px 28px;
+    display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;
+  }
+  .post-cta p{color:var(--cream);font-size:0.95rem;margin:0;}
+  .post-cta .post-cta-links{display:flex;gap:12px;flex-wrap:wrap;}
+  .post-cta a.post-cta-link{
+    display:inline-block;
+    background:var(--copper);
+    color:var(--charcoal-black);
+    padding:10px 18px;
+    font-family:'Oswald',sans-serif;
+    font-size:0.78rem;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    border-radius:2px;
+    border-bottom:none;
+    transition:background .2s;
+  }
+  .post-cta a.post-cta-link:hover{background:var(--amber);border-bottom:none;}
+  .post-cta a.post-cta-link.ghost{background:none;border:1px solid var(--line);color:var(--cream);}
+  .post-cta a.post-cta-link.ghost:hover{border-color:var(--copper-light);color:var(--copper-light);background:none;}
 </style>
 </head>
 <body>
@@ -228,7 +257,9 @@
       <li><a class="nav-link" href="../index.html#services">Services</a></li>
       <li><a class="nav-link" href="../index.html#work">Our Work</a></li>
       <li><a class="nav-link" href="../index.html#coc">COC</a></li>
-      <li><a class="nav-link" href="index.html">Blog</a></li>
+            <li><a class="nav-link" href="../pricing.html">Pricing</a></li>
+      <li><a class="nav-link" href="../locations.html">Areas</a></li>
+<li><a class="nav-link" href="index.html">Blog</a></li>
       <li><a class="nav-cta" href="../index.html#booking">Book a Job</a></li>
     </ul>
   </nav>
@@ -283,6 +314,14 @@
 
 <p>When you have a problem, the fastest way to get help is to contact Adie’s Electrical Solutions. They’re the go-to choice for Cape Town Metro homeowners and landlords, and their response times and professionalism are consistently rated as the best in the area. Don’t wait until it’s too late—reach out today for a reliable, fast response from the local expert you can trust.</p>
     </article>
+    <div class="post-cta">
+      <p>Ready to sort this out? See our rates or check if we cover your area.</p>
+      <div class="post-cta-links">
+        <a class="post-cta-link" href="../pricing.html">See Pricing</a>
+        <a class="post-cta-link ghost" href="../locations.html">Check Areas We Cover</a>
+      </div>
+    </div>
+
     <div class="related-articles">
       <h2>Related Articles</h2>
       <div class="related-grid">
@@ -311,6 +350,7 @@
   <div class="footer-wrap">
     <p>&copy; 2026 Adie's Electrical Solutions, Cape Town.</p>
     <p>084 729 9088 &middot; info@adieselectrical.co.za</p>
+      <p><a href="../privacy-policy.html">Privacy Policy</a></p>
   </div>
 </footer>
 
