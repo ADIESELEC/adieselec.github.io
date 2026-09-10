@@ -656,6 +656,15 @@
     border-color:var(--copper);
     color:var(--amber);
   }
+  .loc-map-embed{
+    margin-top:36px;
+    border-radius:10px;
+    overflow:hidden;
+    border:1px solid rgba(217,139,74,0.25);
+    max-width:900px;
+    margin-left:auto;margin-right:auto;
+  }
+  .loc-map-embed iframe{display:block;}
 
   @media (max-width:760px){
     .region-grid{grid-template-columns:1fr;}
@@ -713,6 +722,13 @@
     <div class="hero-ctas" style="justify-content:center;">
       <a class="btn btn-primary" href="index.html#booking">Book a Job</a>
       <a class="btn btn-ghost" href="https://wa.me/27847299088?text=Hi%20Adie%2C%20I%27d%20like%20a%20quote%20for%20electrical%20work" target="_blank" rel="noopener">Chat on WhatsApp</a>
+    </div>
+
+    <div class="loc-map-embed">
+      <iframe
+        src="https://www.google.com/maps?q=place_id:ChIJz0O-kNVDzB0RI2m3nZvpjCQ&output=embed"
+        width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="Adie's Electrical Solutions location"></iframe>
     </div>
   </div>
 </section>
