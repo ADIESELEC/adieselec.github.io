@@ -6,10 +6,33 @@
 
 - [Home](https://adieselectrical.co.za/): Main overview of electrical services, contact details, and online booking.
 - [Services](https://adieselectrical.co.za/#services): Residential wiring, commercial electrical, fault finding, DB board upgrades, COC inspections, and backup power/solar installations.
+- [Pricing](https://adieselectrical.co.za/pricing.html): Weekday, Saturday/after-hours, and Sunday/public-holiday rates, plus call-out fee policy and pricing FAQ.
+- [Areas We Cover](https://adieselectrical.co.za/locations.html): Suburbs served across the Southern Suburbs, Northern Suburbs, City Bowl & CBD, Atlantic Seaboard, and West Coast.
 - [Certificate of Compliance (COC)](https://adieselectrical.co.za/#coc): Details on electrical compliance inspections for property transfers, sales, and insurance requirements.
 - [Certifications](https://adieselectrical.co.za/#certifications): Trade certificates and qualified electrician registration details.
 - [How It Works](https://adieselectrical.co.za/#how-it-works): Step-by-step process from booking a job to work completion and certificate issuance.
-- [Book a Job](https://adieselectrical.co.za/#contact): Direct contact form and WhatsApp booking details.
+- [FAQ](https://adieselectrical.co.za/#faq): Common questions on licensing, coverage area, response time, after-hours callouts, and CoC.
+- [Book a Job](https://adieselectrical.co.za/#booking): Direct contact form and WhatsApp booking details.
+
+## Blog
+
+- [Blog Home](https://adieselectrical.co.za/blog/index.html): Guides and answers to common electrical questions for Cape Town homeowners.
+- [Surge Protector Installation in Cape Town](https://adieselectrical.co.za/blog/2026-09-28-surge-protector-installation-in-cape-town-protect-your-home-from-power-spikes.html)
+- [Electrician vs Electrician's Assistant](https://adieselectrical.co.za/blog/2026-09-21-electrician-vs-electricians-assistant-what-every-cape-town-homeowner-and-landlor.html)
+- [Understanding Your Electrical Bill: Eskom Charges Explained](https://adieselectrical.co.za/blog/2026-09-14-understanding-your-electrical-bill-a-cape-town-homeowners-guide-to-eskom-charges.html)
+- [Why Electricians Charge for Estimates](https://adieselectrical.co.za/blog/2026-08-31-why-do-electricians-in-cape-town-charge-for-estimates-understanding-your-quote.html)
+- [Home Rewiring Costs in Cape Town](https://adieselectrical.co.za/blog/2026-08-24-home-rewiring-costs-in-cape-town-a-complete-guide-for-cape-town-homeowners.html)
+- [Why Hiring an Unlicensed Electrician is Risky](https://adieselectrical.co.za/blog/2026-08-17-why-hiring-an-unlicensed-electrician-in-cape-town-is-a-risky-choice-for-your-hom.html)
+- [Average Response Time for an Emergency Electrician](https://adieselectrical.co.za/blog/2026-08-10-whats-the-average-response-time-for-an-emergency-electrician-in-cape-town.html)
+- [Why Circuit Breakers Trip in Cape Town Homes](https://adieselectrical.co.za/blog/2026-08-07-why-circuit-breakers-trip-in-cape-town-homes-common-causes-explained.html)
+- [Top Electrical Upgrades to Enhance Safety](https://adieselectrical.co.za/blog/2026-07-28-top-electrical-upgrades-to-enhance-safety-in-your-cape-town-home.html)
+- [Why DIY Electrical Work is Illegal and Dangerous](https://adieselectrical.co.za/blog/2026-07-27-why-diy-electrical-work-is-illegal-and-dangerous-in-cape-town.html)
+- [Essential Tips for Selecting a Licensed Electrician](https://adieselectrical.co.za/blog/2026-07-26-essential-tips-for-selecting-a-licensed-electrician-in-cape-town.html)
+- [What Is a COC? Cape Town Electrician Explains](https://adieselectrical.co.za/blog/certificate-of-compliance-explained.html)
+- [Is Your Solar System Working Properly?](https://adieselectrical.co.za/blog/solar-system-check.html)
+- [Prepaid Electricity Tariffs Explained](https://adieselectrical.co.za/blog/prepaid-electricity-tariffs.html)
+- [Benefits of Solar Installation in South Africa](https://adieselectrical.co.za/blog/solar-installation-benefits.html)
+- [5 Signs You Need an Electrician](https://adieselectrical.co.za/blog/electrical-warning-signs.html)
 
 ## Business Details
 
