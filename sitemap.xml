@@ -1,45 +1,129 @@
-<?xml version="1.0" encoding="UTF-8"?>
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.adieselectrical.co.za/</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.adieselectrical.co.za/blog/index.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.adieselectrical.co.za/blog/solar-system-check.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.adieselectrical.co.za/blog/prepaid-electricity-tariffs.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.adieselectrical.co.za/blog/certificate-of-compliance-explained.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.adieselectrical.co.za/blog/solar-installation-benefits.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.adieselectrical.co.za/blog/electrical-warning-signs.html</loc>
-    <lastmod>2026-07-19</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.7</priority>
-  </url>
+<url>
+<loc>https://www.adieselectrical.co.za/</loc>
+<lastmod>2026-09-30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/pricing.html</loc>
+<lastmod>2026-09-30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/locations.html</loc>
+<lastmod>2026-09-30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/index.html</loc>
+<lastmod>2026-09-28</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/2026-09-28-surge-protector-installation-in-cape-town-protect-your-home-from-power-spikes.html</loc>
+<lastmod>2026-09-28</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/2026-09-21-electrician-vs-electricians-assistant-what-every-cape-town-homeowner-and-landlor.html</loc>
+<lastmod>2026-09-21</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/2026-09-14-understanding-your-electrical-bill-a-cape-town-homeowners-guide-to-eskom-charges.html</loc>
+<lastmod>2026-09-14</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/2026-08-31-why-do-electricians-in-cape-town-charge-for-estimates-understanding-your-quote.html</loc>
+<lastmod>2026-08-31</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/2026-08-24-home-rewiring-costs-in-cape-town-a-complete-guide-for-cape-town-homeowners.html</loc>
+<lastmod>2026-08-24</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/2026-08-17-why-hiring-an-unlicensed-electrician-in-cape-town-is-a-risky-choice-for-your-hom.html</loc>
+<lastmod>2026-08-17</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/2026-08-10-whats-the-average-response-time-for-an-emergency-electrician-in-cape-town.html</loc>
+<lastmod>2026-08-10</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/2026-08-07-why-circuit-breakers-trip-in-cape-town-homes-common-causes-explained.html</loc>
+<lastmod>2026-08-07</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/2026-07-28-top-electrical-upgrades-to-enhance-safety-in-your-cape-town-home.html</loc>
+<lastmod>2026-07-28</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/2026-07-27-why-diy-electrical-work-is-illegal-and-dangerous-in-cape-town.html</loc>
+<lastmod>2026-07-27</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/2026-07-26-essential-tips-for-selecting-a-licensed-electrician-in-cape-town.html</loc>
+<lastmod>2026-07-26</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/certificate-of-compliance-explained.html</loc>
+<lastmod>2026-07-19</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/solar-system-check.html</loc>
+<lastmod>2026-07-19</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/prepaid-electricity-tariffs.html</loc>
+<lastmod>2026-07-19</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/solar-installation-benefits.html</loc>
+<lastmod>2026-07-19</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/blog/electrical-warning-signs.html</loc>
+<lastmod>2026-07-19</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.adieselectrical.co.za/privacy-policy.html</loc>
+<lastmod>2026-08-22</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.3</priority>
+</url>
 </urlset>
