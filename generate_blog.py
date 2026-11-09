@@ -55,7 +55,7 @@ MODEL_NAME = "openrouter/free"
 
 BUSINESS_NAME = "Adie's Electrical Solutions"
 BUSINESS_LOCATION = "Cape Town Metro (Retreat)"
-BUSINESS_PHONE_WHATSAPP = "+27 84 729 9088"
+BUSINESS_PHONE_WHATSAPP = "+27 84 785 3823"
 BUSINESS_EMAIL = "info@adieselectrical.co.za"
 BUSINESS_WEBSITE = "https://adieselectrical.co.za"
 
@@ -104,7 +104,7 @@ def load_topic_pool() -> list:
 TOPIC_POOL = load_topic_pool()
 
 
-WHATSAPP_LINK = "https://wa.me/27847299088?text=Hi%20Adie%2C%20I%27d%20like%20a%20quote%20for%20electrical%20work"
+WHATSAPP_LINK = "https://wa.me/27847853823?text=Hi%20Adie%2C%20I%27d%20like%20a%20quote%20for%20electrical%20work"
 
 # Shared CSS variables + base rules, lifted from the main site so blog
 # pages feel like part of the same site rather than a generic template.
@@ -452,11 +452,15 @@ def generate_related_articles_html(current_filename: str = None, limit: int = 3)
     </div>"""
 
 
-def wrap_full_page(article_html: str, title: str, meta_description: str, related_html: str = "") -> str:
+def wrap_full_page(article_html: str, title: str, meta_description: str, related_html: str = "", filename: str = "") -> str:
     """Wrap the generated article body in a full HTML page matching the
     main site's dark copper/amber theme (header, nav, footer, WhatsApp
     float button)."""
     today = date.today().isoformat()
+    page_url = f"https://adieselectrical.co.za/blog/{filename}" if filename else "https://adieselectrical.co.za/blog/"
+    full_title = f"{title} | {BUSINESS_NAME}"
+    if len(full_title) > 60:
+        full_title = title  # keep titles short enough for Google
     return f"""<!DOCTYPE html>
 <html lang="en-za">
 <head>
@@ -471,10 +475,12 @@ def wrap_full_page(article_html: str, title: str, meta_description: str, related
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{title} | {BUSINESS_NAME}</title>
+<link rel="canonical" href="{page_url}">
+<title>{full_title}</title>
 <meta name="description" content="{meta_description}">
 <meta name="author" content="{BUSINESS_NAME}">
 <meta property="og:title" content="{title}">
+<meta property="og:url" content="{page_url}">
 <meta property="og:description" content="{meta_description}">
 <meta property="og:type" content="article">
 <meta property="article:published_time" content="{today}">
@@ -644,6 +650,7 @@ def generate_index_html() -> str:
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="https://adieselectrical.co.za/blog/index.html">
 <title>Blog | {BUSINESS_NAME}</title>
 <meta name="description" content="Electrical tips, guides, and local Cape Town advice from {BUSINESS_NAME} - COC inspections, DB board upgrades, solar, and more.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -747,7 +754,7 @@ def main():
         sys.exit(1)
 
     related_html = generate_related_articles_html(current_filename=filename)
-    full_page = wrap_full_page(article_html, title, meta_description, related_html)
+    full_page = wrap_full_page(article_html, title, meta_description, related_html, filename)
 
     with open(safe_path, "w", encoding="utf-8") as f:
         f.write(full_page)
