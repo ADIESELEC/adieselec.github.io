@@ -472,8 +472,8 @@ def wrap_full_page(article_html: str, title: str, meta_description: str, related
   gtag('js', new Date());
 
   gtag('config', 'G-Z69GM551P2');
+  gtag('config', 'AW-18566313234');
 </script>
-<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-NDRD773N"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="canonical" href="{page_url}">
@@ -648,6 +648,7 @@ def generate_index_html() -> str:
   gtag('js', new Date());
 
   gtag('config', 'G-Z69GM551P2');
+  gtag('config', 'AW-18566313234');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">

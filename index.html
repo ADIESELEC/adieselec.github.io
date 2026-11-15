@@ -10,12 +10,7 @@
   gtag('js', new Date());
 
   gtag('config', 'G-Z69GM551P2');
-</script>
-<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-NDRD773N"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  gtag('config', 'AW-18566313234');
 </script>
 <link rel="canonical" href="https://adieselectrical.co.za/">
 <meta charset="UTF-8">
@@ -1082,7 +1077,7 @@
       </div>
     </div>
 
-    <form action="https://formspree.io/f/mgogarry" method="POST">
+    <form id="contactForm" action="https://formspree.io/f/mgogarry" method="POST">
       <div class="field-row">
         <div class="field">
           <label for="name">Name</label>
@@ -1177,5 +1172,18 @@
   });
 </script>
 
+<script>
+/* Send the contact form via Formspree, then go to thank-you.html (Google Ads "Contact" conversion) */
+(function(){
+  var f=document.getElementById('contactForm'); if(!f) return;
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var b=f.querySelector('button[type="submit"]'); if(b){b.disabled=true;b.textContent='Sending...';}
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+      .then(function(r){ if(r.ok){ window.location.href='/thank-you.html'; } else { throw new Error(); } })
+      .catch(function(){ if(b){b.disabled=false;b.textContent='Send Request';} alert('Sorry, the form could not be sent. Please WhatsApp or call us on 084 758 3823.'); });
+  });
+})();
+</script>
 </body>
 </html>
