@@ -222,6 +222,21 @@ SHARED_STYLE = """
 # Header/nav markup, with links adjusted to work from inside the blog/
 # subfolder (site sections use "../index.html#..", the Blog link points
 # to the local index.html since we're already inside blog/).
+CONV_TRACKING = r"""<script>
+/* Google Ads conversion tracking: call + WhatsApp clicks */
+(function(){
+  var AW='AW-18566313234';
+  var CALL=AW+'/ID49CIarl7kdEJLqjZVF', WA=AW+'/L5ouCImrl7kdEJLqjZVF';
+  document.addEventListener('click',function(e){
+    var a=e.target&&e.target.closest?e.target.closest('a[href]'):null; if(!a||typeof gtag!=='function') return;
+    var h=(a.getAttribute('href')||'').toLowerCase();
+    if(h.indexOf('tel:')===0){ gtag('event','conversion',{'send_to':CALL,'transport_type':'beacon'}); }
+    else if(/wa\.me|api\.whatsapp\.com|whatsapp:\/\//.test(h)){ gtag('event','conversion',{'send_to':WA,'transport_type':'beacon'}); }
+  },true);
+})();
+</script>
+"""
+
 SITE_HEADER = f"""<header>
   <nav class="nav">
     <div class="brand">
@@ -579,7 +594,7 @@ def wrap_full_page(article_html: str, title: str, meta_description: str, related
 
 {SITE_FOOTER}
 
-</body>
+{CONV_TRACKING}</body>
 </html>
 """
 
@@ -721,7 +736,7 @@ def generate_index_html() -> str:
 
 {SITE_FOOTER}
 
-</body>
+{CONV_TRACKING}</body>
 </html>
 """
 
