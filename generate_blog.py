@@ -55,7 +55,7 @@ MODEL_NAME = "openrouter/free"
 
 BUSINESS_NAME = "Adie's Electrical Solutions"
 BUSINESS_LOCATION = "Cape Town Metro (Retreat)"
-BUSINESS_PHONE_WHATSAPP = "+27 84 758 3823"
+BUSINESS_PHONE_WHATSAPP = "+27 84 785 3823"
 BUSINESS_EMAIL = "info@adieselectrical.co.za"
 BUSINESS_WEBSITE = "https://adieselectrical.co.za"
 
@@ -104,7 +104,7 @@ def load_topic_pool() -> list:
 TOPIC_POOL = load_topic_pool()
 
 
-WHATSAPP_LINK = "https://wa.me/27847583823?text=Hi%20Adie%2C%20I%27d%20like%20a%20quote%20for%20electrical%20work"
+WHATSAPP_LINK = "https://wa.me/27847853823?text=Hi%20Adie%2C%20I%27d%20like%20a%20quote%20for%20electrical%20work"
 
 # Shared CSS variables + base rules, lifted from the main site so blog
 # pages feel like part of the same site rather than a generic template.
