@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://adieselectrical.co.za/sitemap.xml
+Disallow: /ad-assets.html
