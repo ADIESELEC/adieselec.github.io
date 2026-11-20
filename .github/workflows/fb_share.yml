@@ -1,0 +1,23 @@
+name: Share latest blog post to Facebook
+
+on:
+  workflow_dispatch:
+    inputs:
+      post:
+        description: "Blog file to share (leave blank for the newest post), e.g. blog/2026-11-16-....html"
+        required: false
+        default: ""
+
+jobs:
+  share:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Post to Facebook Page
+        env:
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: python post_to_facebook.py ${{ github.event.inputs.post }}
